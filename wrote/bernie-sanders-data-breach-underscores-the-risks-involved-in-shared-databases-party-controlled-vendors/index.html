@@ -1,0 +1,189 @@
+
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>“Bernie Sanders’ “data breach” underscores the risks involved in shared databases & party-controlled vendors” by Ian Patrick Hines</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6857554/6536752/css/fonts.css" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/img/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/img/favicons/manifest.json">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#bdbdbd">
+</head>
+<body>
+  <div id="left-border"></div>
+  <div id="right-border"></div>
+  <div id="top-border"></div>
+  <div id="bottom-border"></div>
+  <main id="bernie-sanders-data-breach-underscores-the-risks-involved-in-shared-databases-party-controlled-vendors">
+    <header>
+      <nav id="breadcrumbs">
+        <a href="/">
+          <img src="http://graph.facebook.com/53000463/picture?width=150&height=150" alt="Photo: Ian Patrick Hines" class="profile-photo">
+        </a>
+        
+          <a href="/">ianpatrickhin.es</a> / <a href="/wrote">wrote</a> / 
+        
+      </nav>
+      <h1>
+        Bernie Sanders’ “data breach” underscores the risks involved in shared databases & party-controlled vendors
+      </h1>
+    </header>
+
+    
+<article class="block">
+  <p>A story is ricocheting around the political world today about Bernie Sanders’ campaign “<a href="https://www.washingtonpost.com/politics/dnc-sanders-campaign-improperly-accessed-clinton-voter-data/2015/12/17/a2e2e14e-a522-11e5-b53d-972e2751f433_story.html">improperly accessed Clinton voter data</a>,” and being disciplined by the DNC as a result. But as someone familiar with politics, databases, and software development, I don’t think the pieces add up.</p>
+
+<p>As best as I can understand the facts based on a number of news accounts, here’s what seems to have happened.</p>
+
+<h2>Step 1: NGP VAN leaked Clinton’s data</h2>
+
+<p><img src="/assets/ngpvan.png" alt="ngpvan"> </p>
+
+<p><a href="http://www.ngpvan.com/">NGP VAN</a> was “applying a patch to their software” (i.e., they were deploying) when a bug was introduced to production that made Clinton’s data visible to Sanders staff (and Sanders’ data available to Clinton’s campaign, if I understand the bug correctly). This would have been an error on NGP VAN’s part, and no fault of either the Clinton or Sanders campaigns.</p>
+
+<p>According to <a href="https://www.washingtonpost.com/politics/dnc-sanders-campaign-improperly-accessed-clinton-voter-data/2015/12/17/a2e2e14e-a522-11e5-b53d-972e2751f433_story.html">The Washington Post</a>:</p>
+
+<blockquote>
+<p>NGP VAN, the vendor that handles the master file, said the incident occurred Wednesday while a patch was being applied to the software. The process briefly opened a window into proprietary information from other campaigns, said the company’s chief, Stu Trevelyan. He said a full audit will be conducted.</p>
+
+<p>The DNC has told the Sanders campaign that it will not be allowed access to the data again until it provides an explanation as well as assurances that all Clinton data has been destroyed.</p>
+</blockquote>
+
+<p>Notice the disconnect here? NGP VAN, who handles the file, said the incident occurred during a period when they briefly exposed Clinton’s data. But as a result, Sanders’ campaign is being punished. Why?</p>
+
+<h2>Step 2: A Sanders campaign staffer noticed the bug and reported it</h2>
+
+<p>According to <a href="http://www.buzzfeed.com/evanmcsan/bernie-sanders-campaign-accessed-confidential-clinton-data#.htWZE73mb">Buzzfeed</a>:</p>
+
+<blockquote>
+<p>For a “brief window” — about 30 minutes, an official said — a bug in the software exposed the campaigns’ internal “voter ID” data.</p>
+
+<p>During that period, the Sanders campaign discovered the breach, accessed the Clinton campaign’s data, then called the vendor to point out the flaw, according to the official. The DNC has since cut off Sanders’s access to the voter file — until his campaign officials can “prove” they’ve deleted the Clinton data.</p>
+</blockquote>
+
+<p>So, wait… NGP VAN deploys a bug into their software that compromises the data integrity of what is (probably) their biggest customer. That customer’s competitor reports the bug to the company, and gets punished for it?</p>
+
+<p>Mind you: “accessed the data” could mean as little as “ran a search to confirm that—yep, whoa—this is Clinton’s data.” It doesn’t mean that they downloaded it en masse. As The New York Times reported:</p>
+
+<blockquote>
+<p>…according to three people with direct knowledge of the breach, there were four user accounts associated with the Sanders campaign that ran searches while the security of Mrs. Clinton’s data was compromised.</p>
+</blockquote>
+
+<p>Ran searches. Okay. Things happen fast in voter databases and campaign offices. That could have been four people in cubicles next to each other going “whoa… can you believe this? Crap. We need to report this ASAP.”</p>
+
+<p>It’s also worth noting that the Sanders’ campaign has fired staffers as a result.</p>
+
+<h2>Step 3: Bernie Sanders’ campaign gets cut off from accessing its voter file</h2>
+
+<p>As a disciplinary action for this “breach,” the DNC has exacted two punishments upon the Sanders campaign:</p>
+
+<p>A brutal news story—<a href="https://news.google.com/news/story?ncl=dil0HMOJxP1VQyMH15yrPFzDjOSMM&amp;q=bernie+sanders+data&amp;lr=English&amp;hl=en&amp;sa=X&amp;ved=0ahUKEwiU-av3yuXJAhUEeCYKHeYzCgYQqgIIKDAA">covered in nearly every major paper</a>—that makes it appear as though Sanders’ campaign hacked and stole from Clinton, which appears to be flatly untrue. That can do serious harm to Sanders’ favorability numbers just ~2 months out from the Iowa Caucuses.</p>
+
+<p>Perhaps more importantly, the DNC and NGP VAN have “cut off Sanders’s access to the voter file — until his campaign officials can “prove” they’ve deleted the Clinton data.” (<a href="http://www.buzzfeed.com/evanmcsan/bernie-sanders-campaign-accessed-confidential-clinton-data#.htWZE73mb">Source</a>) That’s a huge deal, because it limits Sanders’ ability to run his field campaign in the early states at a crucial time for the campaign (immediately following his receipt of Democracy for America’s endorsement).</p>
+
+<h2>A few takeaways</h2>
+
+<p>Taken together, this just doesn’t smell right.</p>
+
+<p>NGP VAN clearly made a serious error that affected high-profile customers at a crucial time. In software development, that sometimes happens—and they should be held accountable for it. But to take these steps to “punish” the Sanders’ campaign seems disproportionate and unfair. And—frankly—it makes me suspicious that the whole thing wasn’t a sort of “sting” to trick the campaign into giving the DNC and NGP VAN cause to deal them a crippling blow.</p>
+
+<h3>Don’t put all your eggs in one basket</h3>
+
+<p>But beyond its repercussions for the Sanders campaign, this incident underscores a larger, ongoing problem with the Democrats’ digital + field infrastructure that Republicans ought to take note of: putting all your proverbial eggs in one basket sets you up for problems down the line.</p>
+
+<p>As the Sanders’ campaign mentioned in The New York Times:</p>
+
+<blockquote>
+<p>“On more than one occasion, the vendor has dropped the firewall between the data of different Democratic campaigns,” he said. “Our campaign months ago alerted the D.N.C. to the fact that campaign data was being made available to other campaigns. At that time our campaign did not run to the media, relying instead on assurances from the vendor.”</p>
+</blockquote>
+
+<p><em>“On more than one occasion.”</em> This apparently is nothing new for NGP VAN and the DNC.</p>
+
+<h3>Maybe Democrats’ “advantage” in databases… isn’t</h3>
+
+<p>Democrats make a lot of noise about the “advantage” that their shared voter database gives them against Republicans. And it’s true: there are advantages to be had with a shared, national voter file. But when your vendor is storing all campaign data in a single database, you run the risk of having that data corrupted, leaked, or exposed to other campaigns during the primary election process. And no amount of “assurances from the vendor” will negate the risk.</p>
+
+<p>Parties should facilitate data sharing &amp; enhancement, but campaigns should own their core interaction data</p>
+
+<p>There’s a lot of data that can and should be shared between campaigns, and that database should be managed by the national party committee (either the DNC or RNC). But the data should be accessible through an API—not a mandatory, proprietary software platform—and only demographic data ought to be synced.</p>
+
+<p>Names, addresses, vote history, consumer data, etc. ought to be easily shared; interaction history like dates and results of canvassing activities, donations, and support levels ought not be. That way, the party committee can’t accidentally leak your supporter list to your primary opponent, etc. Everyone gets the same baseline starting point, but nobody risks a leak like happened to the Democrats today.</p>
+
+<h3>Candidates need to come before vendors</h3>
+
+<p>Based on what I know, this “breach” wasn’t a breach at all. It was a data leak, caused wholly and entirely by NGP VAN’s negligence, and Sanders’ campaign is being thrown under the bus for it.</p>
+
+<p>The DNC is more concerned with preserving their relationship with and the reputation of one of their core vendors than it is with preserving a fair and unbiased primary election process, so they blamed one of their leading presidential candidates and most popular figures for the failures of their lauded vendor. And that’s a shame.</p>
+
+<h3>There should be a free market of vendors, not a sole-source directive from the party</h3>
+
+<p>To Republicans: take note of this story. As we continue to improve our digital &amp; field capacity, we ought to avoid the temptation to make a single vendor our sole-source provider of a crucial piece of infrastructure. Let the free market rise up and solve these tech problems for us, rather than look to the RNC to do it independently. That way, we don’t end up in a position where we’re all totally dependent upon a single, error prone vendor who has the ability to effectively shut down our campaign at the 11th hour of a primary election.</p>
+
+
+  <aside>
+    <time datetime="2015-12-18 H%:26">Published on December 18, 2015</time>
+  </aside>
+</article>
+
+
+    
+    <footer>
+      <nav id="nav">
+        <ul id="menu" class="menu">
+  <li>
+    <a href="/wrote">Writings</a>
+  </li>
+  <li>
+    <a href="http://the.beag.co" target="_blank">Work</a>
+  </li>
+  <li>
+    <a href="/about">About</a>
+  </li>
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+      </nav>
+    </footer>
+    
+
+  </main>
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '528a3e59f5a1f52c0f000066');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>

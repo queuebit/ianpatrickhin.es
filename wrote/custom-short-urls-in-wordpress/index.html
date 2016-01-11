@@ -1,0 +1,116 @@
+
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>“Custom Short URLs in WordPress” by Ian Patrick Hines</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6857554/6536752/css/fonts.css" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/img/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/img/favicons/manifest.json">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#bdbdbd">
+</head>
+<body>
+  <div id="left-border"></div>
+  <div id="right-border"></div>
+  <div id="top-border"></div>
+  <div id="bottom-border"></div>
+  <main id="custom-short-urls-in-wordpress">
+    <header>
+      <nav id="breadcrumbs">
+        <a href="/">
+          <img src="http://graph.facebook.com/53000463/picture?width=150&height=150" alt="Photo: Ian Patrick Hines" class="profile-photo">
+        </a>
+        
+          <a href="/">ianpatrickhin.es</a> / <a href="/wrote">wrote</a> / 
+        
+      </nav>
+      <h1>
+        Custom Short URLs in WordPress
+      </h1>
+    </header>
+
+    
+<article class="block">
+  <p>I mentioned in my earlier post that if you create a Short URL of a page on this site using the Short URL Safari Extension, you&rsquo;ll be automatically delivered an ihin.es URL. A number of people have asked me how this works. Here&rsquo;s how.</p>
+
+<ol>
+<li>I created a <a title="Shorten URLs with bit.ly" href="http://bit.ly/">bit.ly</a> account.</li>
+<li>I installed the &ldquo;Simple URL Shortener&rdquo; WordPress plugin, which can be found <a title="Simple URL Shortener WordPress Plugin" href="http://bit.ly/fJQa7Z">here</a>.</li>
+<li>I entered the following code, which calls the &ldquo;Simple URL Shortener&rdquo; plugin, within my site&rsquo;s header:<br /><code>&lt;?php if (function_exists('simple_url_shortener')) : ?&gt; &lt;link rel="shortlink" href="&lt;?php echo simple_url_shortener('','service=bit.ly+key&amp;apikey= APIKEY&amp;login=USERNAME&amp;cache=no'); ?&gt;" /&gt; &lt;?php endif; ?&gt; &lt;link rel="canonical" href="&lt;?php the_permalink() ?&gt;"/&gt;</code>
+<p>Obviously you&rsquo;ll need to replace APIKEY and USERNAME with your bit.ly username and API key.</p>
+</li>
+<li>That&rsquo;s it.</li>
+</ol>
+
+<p>This has the effect of creating an element in your site&rsquo;s header identifying your custom bit.ly URL as the specified &ldquo;shorturl,&rdquo; which a variety of URL shorteners recognize and use. It won&rsquo;t work in every instance, but consider it another tool in your arsenal of awesome.</p>
+
+<p>Note: To create short URLs with a custom domain name, simply find and register said domain name using <a title="Domai.nr: The best tool for finding obscure domain names" href="http://domai.nr/">Domai.nr</a> and configure it as a bit.ly pro URL <a title="bit.ly Pro" href="http://bit.ly/ibT3gF">here</a>.</p>
+
+
+  <aside>
+    <time datetime="2010-12-13 H%:24">Published on December 13, 2010</time>
+  </aside>
+</article>
+
+
+    
+    <footer>
+      <nav id="nav">
+        <ul id="menu" class="menu">
+  <li>
+    <a href="/wrote">Writings</a>
+  </li>
+  <li>
+    <a href="http://the.beag.co" target="_blank">Work</a>
+  </li>
+  <li>
+    <a href="/about">About</a>
+  </li>
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+      </nav>
+    </footer>
+    
+
+  </main>
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '528a3e59f5a1f52c0f000066');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>“On NationBuilder, voter files, and data security” by Ian Patrick Hines</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6857554/6536752/css/fonts.css" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/img/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/img/favicons/manifest.json">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#bdbdbd">
+</head>
+<body>
+  <div id="left-border"></div>
+  <div id="right-border"></div>
+  <div id="top-border"></div>
+  <div id="bottom-border"></div>
+  <main id="on-nationbuilder-voter-files-and-data-security">
+    <header>
+      <nav id="breadcrumbs">
+        <a href="/">
+          <img src="http://graph.facebook.com/53000463/picture?width=150&height=150" alt="Photo: Ian Patrick Hines" class="profile-photo">
+        </a>
+        
+          <a href="/">ianpatrickhin.es</a> / <a href="/wrote">wrote</a> / 
+        
+      </nav>
+      <h1>
+        On NationBuilder, voter files, and data security
+      </h1>
+    </header>
+
+    
+<article class="block">
+  <p><img src="/assets/nationbuilder-voter-data.png" alt="NationBuilder"> </p>
+
+<p>In the wake of yesterday’s report that 191 million voter records have been published online in a publicly searchable way, a number of people have implied or directly accused that NationBuilder — a nonpartisan software company that maintains a national voter file—is responsible. This is untrue, and I’d like to explain why.</p>
+
+<ol>
+<li>No one leases data from NationBuilder. Because access to clean, usable , and accurate voter data is a vital part of running for office, NationBuilder provides a standardized voter file — free of charge — to campaigns or organizations who legally qualify to have access to it (based on each state’s individual laws). The data is all public data available from each state’s Secretary of State’s office, and is provided only to organizations that legally qualify for it. The only change is that it has been put in a standardized format for ease of use. See here: <a href="http://nationbuilder.com/voter_file">http://nationbuilder.com/voter_file</a></li>
+<li>All records obtained from NationBuilder’s Election Center database include a “NationBuilder Election Center ID” (NBEC<em>GUID). This is a unique ID—distinct from each state’s voter file IDs—that allows the database to distinguish each individual voter in the United States. But just because a data file includes an NBEC</em>GUID doesn’t mean that the person in possession of that file got it from NationBuilder directly. The records could’ve been merged with another file (as is common practice) or given to them by a third party.</li>
+<li>Based on all reports I’ve read, the exposed data wasn’t hosted on NationBuilder’s platform — meaning NationBuilder didn’t leak or expose anything. They may have provided voter data to an organization in a legally compliant way, however, and that organization failed to safeguard it. This would have been no different than that organization going to each Secretary of State, securing the data directly, and then exposing it.</li>
+</ol>
+
+<p>Is it possible that the publicly visible data was initially obtained from NationBuilder’s Election Center? Yes. Does that mean NationBuilder is at fault? Absolutely not.</p>
+
+<p><em>If anything, this incident underscores how important it is to use a platform like NationBuilder to host your data,</em> rather than attempt to home-roll your own server and take on the data security task yourself. NationBuilder’s hosted platform is maintained by a team of expert engineers, is securely encrypted, and accessible only with a secure login or via the API with a secure token.</p>
+
+<p><strong>Put another way: if the organization whose data was exposed publicly yesterday had stored their data on NationBuilder it would have been private and secure.</strong></p>
+
+<p>These are complex issues and beyond the normal conversational comfort zone of most Americans, so the spread of mis-information is understandable. What isn’t understandable, though, is an intentional spread of dis-information by knowledgeable people in an effort to disparage a company or product that they dislike. NationBuilder’s product has allowed thousands of campaigns and organizations around the world organize their communities and make an impact, and their work to clean, maintain, and distribute voter data to permitted organizations is central to that mission. I thought someone should say so.</p>
+
+<p><em>Note: From November 2012–November 2013, I worked at NationBuilder’s headquarters in Los Angeles. In the time since I’ve left the company, I’ve helped more than 120 organizations leverage NationBuilder’s community organizing platform in their communities. I’ve worked first-hand with its Election Center data, and I own a small amount of common stock in the company.</em></p>
+
+
+  <aside>
+    <time datetime="2015-12-29 H%:51">Published on December 29, 2015</time>
+  </aside>
+</article>
+
+
+    
+    <footer>
+      <nav id="nav">
+        <ul id="menu" class="menu">
+  <li>
+    <a href="/wrote">Writings</a>
+  </li>
+  <li>
+    <a href="http://the.beag.co" target="_blank">Work</a>
+  </li>
+  <li>
+    <a href="/about">About</a>
+  </li>
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+      </nav>
+    </footer>
+    
+
+  </main>
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '528a3e59f5a1f52c0f000066');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>

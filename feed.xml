@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ianpatrickhin.es</title>
+    <link>http://ianpatrickhin.es</link>
+    <pubDate>Mon, 11 Jan 2016 10:42:16 -0500</pubDate>
+    
+    <item>
+      <title>On NationBuilder, voter files, and data security</title>
+      <link>http://ianpatrickhin.es/wrote/on-nationbuilder-voter-files-and-data-security</link>
+      <pubDate>Tue, 29 Dec 2015 01:51:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/on-nationbuilder-voter-files-and-data-security</guid>
+      <description>&lt;p&gt;&lt;img src=&quot;/assets/nationbuilder-voter-data.png&quot; alt=&quot;NationBuilder&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;In the wake of yesterday’s report that 191 million voter records have been published online in a publicly searchable way, a number of people have implied or directly accused that NationBuilder — a nonpartisan software company that maintains a national voter file—is responsible. This is untrue, and I’d like to explain why.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;No one leases data from NationBuilder. Because access to clean, usable , and accurate voter data is a vital part of running for office, NationBuilder provides a standardized voter file — free of charge — to campaigns or organizations who legally qualify to have access to it (based on each state’s individual laws). The data is all public data available from each state’s Secretary of State’s office, and is provided only to organizations that legally qualify for it. The only change is that it has been put in a standardized format for ease of use. See here: &lt;a href=&quot;http://nationbuilder.com/voter_file&quot;&gt;http://nationbuilder.com/voter_file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;All records obtained from NationBuilder’s Election Center database include a “NationBuilder Election Center ID” (NBEC&lt;em&gt;GUID). This is a unique ID—distinct from each state’s voter file IDs—that allows the database to distinguish each individual voter in the United States. But just because a data file includes an NBEC&lt;/em&gt;GUID doesn’t mean that the person in possession of that file got it from NationBuilder directly. The records could’ve been merged with another file (as is common practice) or given to them by a third party.&lt;/li&gt;
+&lt;li&gt;Based on all reports I’ve read, the exposed data wasn’t hosted on NationBuilder’s platform — meaning NationBuilder didn’t leak or expose anything. They may have provided voter data to an organization in a legally compliant way, however, and that organization failed to safeguard it. This would have been no different than that organization going to each Secretary of State, securing the data directly, and then exposing it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Is it possible that the publicly visible data was initially obtained from NationBuilder’s Election Center? Yes. Does that mean NationBuilder is at fault? Absolutely not.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If anything, this incident underscores how important it is to use a platform like NationBuilder to host your data,&lt;/em&gt; rather than attempt to home-roll your own server and take on the data security task yourself. NationBuilder’s hosted platform is maintained by a team of expert engineers, is securely encrypted, and accessible only with a secure login or via the API with a secure token.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Put another way: if the organization whose data was exposed publicly yesterday had stored their data on NationBuilder it would have been private and secure.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;These are complex issues and beyond the normal conversational comfort zone of most Americans, so the spread of mis-information is understandable. What isn’t understandable, though, is an intentional spread of dis-information by knowledgeable people in an effort to disparage a company or product that they dislike. NationBuilder’s product has allowed thousands of campaigns and organizations around the world organize their communities and make an impact, and their work to clean, maintain, and distribute voter data to permitted organizations is central to that mission. I thought someone should say so.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: From November 2012–November 2013, I worked at NationBuilder’s headquarters in Los Angeles. In the time since I’ve left the company, I’ve helped more than 120 organizations leverage NationBuilder’s community organizing platform in their communities. I’ve worked first-hand with its Election Center data, and I own a small amount of common stock in the company.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bernie Sanders’ “data breach” underscores the risks involved in shared databases &amp; party-controlled vendors</title>
+      <link>http://ianpatrickhin.es/wrote/bernie-sanders-data-breach-underscores-the-risks-involved-in-shared-databases-party-controlled-vendors</link>
+      <pubDate>Fri, 18 Dec 2015 09:26:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/bernie-sanders-data-breach-underscores-the-risks-involved-in-shared-databases-party-controlled-vendors</guid>
+      <description>&lt;p&gt;A story is ricocheting around the political world today about Bernie Sanders’ campaign “&lt;a href=&quot;https://www.washingtonpost.com/politics/dnc-sanders-campaign-improperly-accessed-clinton-voter-data/2015/12/17/a2e2e14e-a522-11e5-b53d-972e2751f433_story.html&quot;&gt;improperly accessed Clinton voter data&lt;/a&gt;,” and being disciplined by the DNC as a result. But as someone familiar with politics, databases, and software development, I don’t think the pieces add up.&lt;/p&gt;
+
+&lt;p&gt;As best as I can understand the facts based on a number of news accounts, here’s what seems to have happened.&lt;/p&gt;
+
+&lt;h2&gt;Step 1: NGP VAN leaked Clinton’s data&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/ngpvan.png&quot; alt=&quot;ngpvan&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ngpvan.com/&quot;&gt;NGP VAN&lt;/a&gt; was “applying a patch to their software” (i.e., they were deploying) when a bug was introduced to production that made Clinton’s data visible to Sanders staff (and Sanders’ data available to Clinton’s campaign, if I understand the bug correctly). This would have been an error on NGP VAN’s part, and no fault of either the Clinton or Sanders campaigns.&lt;/p&gt;
+
+&lt;p&gt;According to &lt;a href=&quot;https://www.washingtonpost.com/politics/dnc-sanders-campaign-improperly-accessed-clinton-voter-data/2015/12/17/a2e2e14e-a522-11e5-b53d-972e2751f433_story.html&quot;&gt;The Washington Post&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;NGP VAN, the vendor that handles the master file, said the incident occurred Wednesday while a patch was being applied to the software. The process briefly opened a window into proprietary information from other campaigns, said the company’s chief, Stu Trevelyan. He said a full audit will be conducted.&lt;/p&gt;
+
+&lt;p&gt;The DNC has told the Sanders campaign that it will not be allowed access to the data again until it provides an explanation as well as assurances that all Clinton data has been destroyed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Notice the disconnect here? NGP VAN, who handles the file, said the incident occurred during a period when they briefly exposed Clinton’s data. But as a result, Sanders’ campaign is being punished. Why?&lt;/p&gt;
+
+&lt;h2&gt;Step 2: A Sanders campaign staffer noticed the bug and reported it&lt;/h2&gt;
+
+&lt;p&gt;According to &lt;a href=&quot;http://www.buzzfeed.com/evanmcsan/bernie-sanders-campaign-accessed-confidential-clinton-data#.htWZE73mb&quot;&gt;Buzzfeed&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;For a “brief window” — about 30 minutes, an official said — a bug in the software exposed the campaigns’ internal “voter ID” data.&lt;/p&gt;
+
+&lt;p&gt;During that period, the Sanders campaign discovered the breach, accessed the Clinton campaign’s data, then called the vendor to point out the flaw, according to the official. The DNC has since cut off Sanders’s access to the voter file — until his campaign officials can “prove” they’ve deleted the Clinton data.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, wait… NGP VAN deploys a bug into their software that compromises the data integrity of what is (probably) their biggest customer. That customer’s competitor reports the bug to the company, and gets punished for it?&lt;/p&gt;
+
+&lt;p&gt;Mind you: “accessed the data” could mean as little as “ran a search to confirm that—yep, whoa—this is Clinton’s data.” It doesn’t mean that they downloaded it en masse. As The New York Times reported:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;…according to three people with direct knowledge of the breach, there were four user accounts associated with the Sanders campaign that ran searches while the security of Mrs. Clinton’s data was compromised.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ran searches. Okay. Things happen fast in voter databases and campaign offices. That could have been four people in cubicles next to each other going “whoa… can you believe this? Crap. We need to report this ASAP.”&lt;/p&gt;
+
+&lt;p&gt;It’s also worth noting that the Sanders’ campaign has fired staffers as a result.&lt;/p&gt;
+
+&lt;h2&gt;Step 3: Bernie Sanders’ campaign gets cut off from accessing its voter file&lt;/h2&gt;
+
+&lt;p&gt;As a disciplinary action for this “breach,” the DNC has exacted two punishments upon the Sanders campaign:&lt;/p&gt;
+
+&lt;p&gt;A brutal news story—&lt;a href=&quot;https://news.google.com/news/story?ncl=dil0HMOJxP1VQyMH15yrPFzDjOSMM&amp;amp;q=bernie+sanders+data&amp;amp;lr=English&amp;amp;hl=en&amp;amp;sa=X&amp;amp;ved=0ahUKEwiU-av3yuXJAhUEeCYKHeYzCgYQqgIIKDAA&quot;&gt;covered in nearly every major paper&lt;/a&gt;—that makes it appear as though Sanders’ campaign hacked and stole from Clinton, which appears to be flatly untrue. That can do serious harm to Sanders’ favorability numbers just ~2 months out from the Iowa Caucuses.&lt;/p&gt;
+
+&lt;p&gt;Perhaps more importantly, the DNC and NGP VAN have “cut off Sanders’s access to the voter file — until his campaign officials can “prove” they’ve deleted the Clinton data.” (&lt;a href=&quot;http://www.buzzfeed.com/evanmcsan/bernie-sanders-campaign-accessed-confidential-clinton-data#.htWZE73mb&quot;&gt;Source&lt;/a&gt;) That’s a huge deal, because it limits Sanders’ ability to run his field campaign in the early states at a crucial time for the campaign (immediately following his receipt of Democracy for America’s endorsement).&lt;/p&gt;
+
+&lt;h2&gt;A few takeaways&lt;/h2&gt;
+
+&lt;p&gt;Taken together, this just doesn’t smell right.&lt;/p&gt;
+
+&lt;p&gt;NGP VAN clearly made a serious error that affected high-profile customers at a crucial time. In software development, that sometimes happens—and they should be held accountable for it. But to take these steps to “punish” the Sanders’ campaign seems disproportionate and unfair. And—frankly—it makes me suspicious that the whole thing wasn’t a sort of “sting” to trick the campaign into giving the DNC and NGP VAN cause to deal them a crippling blow.&lt;/p&gt;
+
+&lt;h3&gt;Don’t put all your eggs in one basket&lt;/h3&gt;
+
+&lt;p&gt;But beyond its repercussions for the Sanders campaign, this incident underscores a larger, ongoing problem with the Democrats’ digital + field infrastructure that Republicans ought to take note of: putting all your proverbial eggs in one basket sets you up for problems down the line.&lt;/p&gt;
+
+&lt;p&gt;As the Sanders’ campaign mentioned in The New York Times:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;“On more than one occasion, the vendor has dropped the firewall between the data of different Democratic campaigns,” he said. “Our campaign months ago alerted the D.N.C. to the fact that campaign data was being made available to other campaigns. At that time our campaign did not run to the media, relying instead on assurances from the vendor.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;“On more than one occasion.”&lt;/em&gt; This apparently is nothing new for NGP VAN and the DNC.&lt;/p&gt;
+
+&lt;h3&gt;Maybe Democrats’ “advantage” in databases… isn’t&lt;/h3&gt;
+
+&lt;p&gt;Democrats make a lot of noise about the “advantage” that their shared voter database gives them against Republicans. And it’s true: there are advantages to be had with a shared, national voter file. But when your vendor is storing all campaign data in a single database, you run the risk of having that data corrupted, leaked, or exposed to other campaigns during the primary election process. And no amount of “assurances from the vendor” will negate the risk.&lt;/p&gt;
+
+&lt;p&gt;Parties should facilitate data sharing &amp;amp; enhancement, but campaigns should own their core interaction data&lt;/p&gt;
+
+&lt;p&gt;There’s a lot of data that can and should be shared between campaigns, and that database should be managed by the national party committee (either the DNC or RNC). But the data should be accessible through an API—not a mandatory, proprietary software platform—and only demographic data ought to be synced.&lt;/p&gt;
+
+&lt;p&gt;Names, addresses, vote history, consumer data, etc. ought to be easily shared; interaction history like dates and results of canvassing activities, donations, and support levels ought not be. That way, the party committee can’t accidentally leak your supporter list to your primary opponent, etc. Everyone gets the same baseline starting point, but nobody risks a leak like happened to the Democrats today.&lt;/p&gt;
+
+&lt;h3&gt;Candidates need to come before vendors&lt;/h3&gt;
+
+&lt;p&gt;Based on what I know, this “breach” wasn’t a breach at all. It was a data leak, caused wholly and entirely by NGP VAN’s negligence, and Sanders’ campaign is being thrown under the bus for it.&lt;/p&gt;
+
+&lt;p&gt;The DNC is more concerned with preserving their relationship with and the reputation of one of their core vendors than it is with preserving a fair and unbiased primary election process, so they blamed one of their leading presidential candidates and most popular figures for the failures of their lauded vendor. And that’s a shame.&lt;/p&gt;
+
+&lt;h3&gt;There should be a free market of vendors, not a sole-source directive from the party&lt;/h3&gt;
+
+&lt;p&gt;To Republicans: take note of this story. As we continue to improve our digital &amp;amp; field capacity, we ought to avoid the temptation to make a single vendor our sole-source provider of a crucial piece of infrastructure. Let the free market rise up and solve these tech problems for us, rather than look to the RNC to do it independently. That way, we don’t end up in a position where we’re all totally dependent upon a single, error prone vendor who has the ability to effectively shut down our campaign at the 11th hour of a primary election.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Going #AllinforJeb</title>
+      <link>http://ianpatrickhin.es/wrote/going-all-in-for-jeb</link>
+      <pubDate>Wed, 09 Dec 2015 23:15:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/going-all-in-for-jeb</guid>
+      <description>&lt;p&gt;&lt;img src=&quot;/assets/jeb.jpeg&quot; alt=&quot;jeb&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;On April 26, 2016, I’ll be casting my vote in the Maryland Republican Primary Election for Jeb Bush, the former governor of Florida. It’s a decision that I’ve put a lot of thought into, and I thought I’d share my reasoning.&lt;/p&gt;
+
+&lt;h2&gt;Reason #1: He’s an adult Catholic convert&lt;/h2&gt;
+
+&lt;p&gt;I found my faith in Christ and one, holy, catholic, and apostolic church as an adult. I converted in 2010, shortly after the birth of my first son, and the experience of my faith journey, eventual conversion, and of my day-to-day life as a practicing Catholic have shaped who I am as a person.&lt;/p&gt;
+
+&lt;p&gt;For his part, Governor Bush converted to Catholicism ~20-years ago, after losing his first election for governor of Florida. And by all accounts, it had a similarly transformative affect on his life, both personally and in his approach to public policy.&lt;/p&gt;
+
+&lt;p&gt;In a March 2015 New York Times article, he described his faith in this way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;“As a public leader, one’s faith should guide you,” Mr. Bush said in Italy in 2009, explaining his attitude about the relationship between religion and politics at a conference associated with Communion and Liberation, a conservative Catholic lay movement.&lt;/p&gt;
+
+&lt;p&gt;“In the United States, many people think you need to keep your faith, put it in a security box, if you’re an elected official — put it in a safety deposit box until you finish your service as a public servant and then you can go get it back,” he added. “I never felt that was appropriate.”&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;p&gt;“You hear people say, ‘I don’t want to impose my faith,’ ” Mr. Bush told the newspaper The Florida Catholic days after leaving office in 2007. “Well, it’s not an imposition of faith. It’s who you are.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That article, and his comments in it, have really stood out to me over these past months. They echo the teachings of Archbishop Charles Chaput of Philadelphia, which he outlined in his book Render Unto Caesar: Serving the Nation by Living Our Catholic Beliefs in Political Life—a book that I read during my RCIA in 2010 and which has really shaped my worldview and politics since my conversion. Those common experiences—the adult conversion and the approach to living our faith in public life—give me a great deal of comfort and confidence in Governor Bush’s philosophical approach to governing, which (I believe) is far more important to grok than a candidates specific position on a particular issue.&lt;/p&gt;
+
+&lt;p&gt;I should say, of course, that Governor Bush is hardly the only Catholic running for the Republican nomination for the presidency. Indeed, there are several well qualified Catholics seeking the nomination, and all of them share my faith and conservative worldview. But it’s Governor Bush’s faith journey, which parallels my own, that connect most personally with me, and that counts for a lot.&lt;/p&gt;
+
+&lt;h2&gt;Reason #2: He is committed to restoring federalism and the Tenth Amendment&lt;/h2&gt;
+
+&lt;p&gt;As an undergraduate at McDaniel College, I wrote my senior thesis—a 40-page footnoted research paper—that sought to describe how reinterpretations of an amendments to the Constitution have dramatically altered the way in which the several State Governments and the federal Government interact. It was, and probably remains, the most substantive piece of research and writing I have ever undertaken, and the process of researching and writing it—reading primary source material from the Founding Fathers (including many who you rarely hear about in high school history books), Supreme Court caselaw, etc.—shaped my understanding of our Constitution, checks and balances, and the role of the federal Government.&lt;/p&gt;
+
+&lt;p&gt;The destabilization of the balance of power between the States and the federal Government is at the root of most of what’s wrong with Washington, today—and we need to address it head on.&lt;/p&gt;
+
+&lt;p&gt;We need a president who understands the crucial role that enumerated powers doctrine and the Tenth Amendment play in shaping—and restraining—Congress and the presidency. And in this campaign, Governor Bush is the only candidate who’s talking about this issue at all.&lt;/p&gt;
+
+&lt;p&gt;Just today, Governor Bush’s campaign released a long-form issue statement about “The Tenth Amendment Presidency,” outlining why the Tenth Amendment is important and how a Bush administration would use the policy making power of the presidency to restrain the federal government and restore power to the states. The whole time I was reading it I found myself vocally cheering, nodding my head, and thinking “where do I sign up?” (The answer is here: &lt;a href=&quot;https://jeb2016.com/volunteer/&quot;&gt;https://jeb2016.com/volunteer/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2&gt;Reason #3: He’s a relatable guy on the trail&lt;/h2&gt;
+
+&lt;p&gt;One of the knocks you’ll hear about Governor Bush is that he doesn’t alway say the right thing. He’s not pitch perfect on the stump every time. He doesn’t always nail his delivery at the debates. Etc. Okay. I can relate to that.&lt;/p&gt;
+
+&lt;p&gt;Presidential campaigns operate in a fast-paced, unforgiving media environment, and in that sort of environment every tiny sign of humanity is amplified as a micro-failure or gaffe. In actuality, Governor Bush—as a candidate—is a lot like how I’d hope to be if I ever entered public life: he’s thoughtfully spoken, he’s honest, and he’s a bit longwinded. But these aren’t character flaws, nor do they make him a bad candidate. They’re human qualities that—when experienced in person—help him shine through as an authentic, relatable guy.&lt;/p&gt;
+
+&lt;p&gt;Don’t believe me, just watch how giddy he gets when he gets a question from someone in the audience about NASA and the space program. He’s like a kid in a candy store.&lt;/p&gt;
+
+&lt;h2&gt;The Bottom Line&lt;/h2&gt;
+
+&lt;p&gt;Governor Bush is a guy who loves people, enjoys public service, and wades into the details. Though he’s often portrayed as a moderate, he has one of the strongest conservative records of any candidate in the race. He’s proved that he has the temperament, the determination, and the know-how to get real results as governor of Florida.&lt;/p&gt;
+
+&lt;p&gt;With the rise of Donald Trump—a man who is neither a conservative, a Republican, or a presidential leader—threatening to undermine the very fabric of our republic, this election couldn’t be more important. We need to choose a man of character with a record of leadership in public service to lead us through these trying times, and former Governor Jeb Bush is that person. And those are the reasons why I’ll be supporting him for the Republican nomination for President of the United states.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you were persuaded by this article—or even just intrigued by it—I’d encourage you to sign up to follow Governor Bush’s campaign at &lt;a href=&quot;https://jeb2016.com/&quot;&gt;https://jeb2016.com/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>We have to stop Donald Trump. Now.</title>
+      <link>http://ianpatrickhin.es/wrote/we-have-to-stop-donald-trump-now</link>
+      <pubDate>Tue, 08 Dec 2015 07:19:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/we-have-to-stop-donald-trump-now</guid>
+      <description>&lt;p&gt;&lt;em&gt;An open letter to the Republican candidates for President of the United States of America.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Dear Candidates —&lt;/p&gt;
+
+&lt;p&gt;My name is Ian Patrick Hines. I am a Republican, a Marylander, and a proud American citizen. I am writing today to express my grave concern for the future of our republic, and to plead with you to take action to prevent the unthinkable.&lt;/p&gt;
+
+&lt;p&gt;Each week, Donald Trump’s campaign seems to take another dark turn. What began as an almost comical exercise by an overgrown adolescent has—in the past few weeks—come to look more and more like the early days of a rising fascist dictatorship. His penchant for telling outright lies, attacking—as fundamentally corrupt—foundational American institutions like the free press, and demonizing immigrants, Muslims, and anyone who disagrees with him threatens to undercut the very fabric of our republic. He must be stopped. Immediately.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/trump.jpeg&quot; alt=&quot;Photo: Donald Trump must be stopped.&quot;&gt;
+&lt;figcaption&gt;
+This man cannot become the president. We cannot allow it.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I know that over the Summer, many of you attempted ignoring him in the hopes that he would implode—falling victim to his own flaws. He has not. Then, some of you attempted to shame him into conformity with established norms for civilized political discourse. He responded by becoming ever-more extreme, and your poll numbers faded. As a result, the field collectively has seemed to adopt a “wait-and-see” posture in the hopes that either (a) he will fade down the stretch or (b) you’ll be able to use the media’s requests for comment on his statements into an opportunity to communicate your message—riding the wave of his coverage, as it were. It will not work, and he in the meantime he is growing stronger and more bold.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;While the field remains fractured into more than a dozen candidacies, none of you will be strong enough to take him on alone.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I know you all want to become president. I understand that, and each of you bring unique talents, experiences, and perspectives to the table. I would have loved a primary election cycle where we had the opportunity to debate your varying leadership styles and visions for the future of our country, but that is not election in which we find ourselves. Instead, have been besieged by cancer of racism, nativism, and (potentially) fascism the likes of which our era of American politics has never experienced. And if we do not take the threat seriously now, our window of opportunity will soon close.&lt;/p&gt;
+
+&lt;p&gt;I fear that if Donald Trump wins the Iowa Caucuses in February, his campaign will be unstoppable. Given his existing position in national polls, and the momentum he’ll carry with him out of Iowa, I cannot foresee how any of your campaigns counters him after Iowa. You must move to stop this menace now.&lt;/p&gt;
+
+&lt;p&gt;That is why I am writing you today: to plead with you to take this threat seriously, and consider honestly whether your continued campaigning is helping solve or continuing to fuel this situation. I believe that in order to stop him, we must narrow the field dramatically—now. We must present the nation with a clear choice in the upcoming primaries and caucuses between genuine American Conservatism and Trump’s nativist populism. To do that, the dynamic of the race need to shift from “everyone vs. Trump” to “Trump vs. [Candidate].”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;To be clear: I am asking most of you to withdraw from the race. Only one candidate can win the nomination. Right now, it looks likely to be Trump, and unlikely to be you. For the greater good, that cannot come to pass.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Trump is currently leading the field with a plurality of votes—but not a majority. We can still stem the tide and stop him from gaining the authority to implement his proposals, but only if we work together.&lt;/p&gt;
+
+&lt;p&gt;Trump is a wolf in sheep’s clothing: He is not a Republican—not really—and his influence in this race threatens to undermine the very fabric of our republic. If you truly want what’s best for the nation, selflessly do what you can to stop Donald Trump from becoming the Republican nominee and—God forbid—the President of the United States.&lt;/p&gt;
+
+&lt;p&gt;—Ian&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How we use Basecamp 3 to manage everything</title>
+      <link>http://ianpatrickhin.es/wrote/how-we-use-basecamp-3-to-manage-everything</link>
+      <pubDate>Mon, 30 Nov 2015 09:53:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/how-we-use-basecamp-3-to-manage-everything</guid>
+      <description>&lt;p&gt;&lt;img src=&quot;/assets/basecamp-1.png&quot; alt=&quot;basecamp-1&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;Over the past ten years, I’ve tried just about every productivity and task management system you can name. &lt;a href=&quot;https://support.apple.com/kb/PH12088?locale=en_US&quot;&gt;Apple Reminders&lt;/a&gt;, &lt;a href=&quot;http://asana.com/&quot;&gt;Asana&lt;/a&gt;, &lt;a href=&quot;http://basecamp.com/&quot;&gt;Basecamp&lt;/a&gt; (Classic and Basecamp 2!), &lt;a href=&quot;https://support.google.com/inbox/answer/6062813?hl=en&quot;&gt;Google Reminders&lt;/a&gt;, &lt;a href=&quot;https://www.omnigroup.com/omnifocus&quot;&gt;OmniFocus&lt;/a&gt;, &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, &lt;a href=&quot;https://culturedcode.com/things/&quot;&gt;Things&lt;/a&gt;, &lt;a href=&quot;http://trello.com/&quot;&gt;Trello&lt;/a&gt;, &lt;a href=&quot;http://wunderlist.com/&quot;&gt;Wunderlist&lt;/a&gt;, etc. You name it, I’ve tried it. And nothing ever felt quite right.&lt;/p&gt;
+
+&lt;p&gt;When I worked on a team, however, these trials were all more-or-less academic. I had to use whatever system the boss put in place, whether I liked it or not, But since I started &lt;a href=&quot;http://the.beag.co/&quot;&gt;The BEAG Co.&lt;/a&gt;, it’s been my responsibility to establish and maintain our internal processes for task management and internal &amp;amp; client communications. And after about two-years of trial and error, I ultimately settled on Basecamp 3.&lt;/p&gt;
+
+&lt;p&gt;Let me tell you why.&lt;/p&gt;
+
+&lt;h2&gt;Office? What office? We work in Basecamp.&lt;/h2&gt;
+
+&lt;p&gt;As of this writing, BEAG is a remote team of three people living in three states. We’re currently serving 14 clients across 5 countries. We don’t have an office. We have Basecamp.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-2.png&quot; alt=&quot;Screenshot of our primary internal basecamp: “The Office”&quot;&gt;
+&lt;figcaption&gt;
+Screenshot of our primary internal basecamp: “The Office”
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We’ve been &lt;a href=&quot;http://37signals.com/remote&quot;&gt;a remote team&lt;/a&gt; from Day One. When I first began the work that would eventually become BEAG, I was a freelancer based in Los Angeles. Not long after, I moved back home to Maryland, where I eventually established the company officially. My first hire—&lt;a href=&quot;https://medium.com/u/54ec24498cf7&quot;&gt;Phil Kregel&lt;/a&gt;—lives in Los Angeles, as well, and my second—&lt;a href=&quot;https://medium.com/u/c13ff00be694&quot;&gt;Richie Alicea&lt;/a&gt;—lives in Washington, DC. We’re currently serving clients across the United States, as well as in Australia, the Caribbean, France, and the United Kingdom. And to us, all this feels quite natural—&lt;em&gt;preferable&lt;/em&gt;, even.&lt;/p&gt;
+
+&lt;p&gt;But it wouldn’t be possible for us to do the work we do without Basecamp &lt;em&gt;(or something like it)&lt;/em&gt;. We’ve tried various combinations of tools, like Slack and Asana, but they never quite felt right. It wasn’t until the launch of Basecamp 3 that we finally found an all-around champ that gave us the tools we needed to manage and grow our business.&lt;/p&gt;
+
+&lt;p&gt;With the advent of Basecamp 3, the tool became more than just a project management tool. Now, each basecamp &lt;em&gt;(intentionally lowercased)&lt;/em&gt; functions almost like a channel in Slack — we make them on the fly and each meets a specific niche need inside our business. But unlike Slack channels, individual basecamps are more than just chat rooms — they give us a customizable combination of &lt;a href=&quot;https://basecamp.com/3/tools&quot;&gt;six tools&lt;/a&gt; to help us tackle the work in front of us. And that customizability is key: we use individual basecamps for a variety of internal and client projects, and each looks a little bit different.&lt;/p&gt;
+
+&lt;p&gt;Internally, we have several ongoing basecamps for running the business on a day-to-day &lt;em&gt;(including some that’re just for fun)&lt;/em&gt;. Each of them is prefaced by “BEAG: ” to help us quickly tell them apart from client-facing basecamps, and serves a unique purpose. The following are a few examples.&lt;/p&gt;
+
+&lt;h3&gt;“The Office”&lt;/h3&gt;
+
+&lt;p&gt;“The Office” is our primary internal basecamp. It’s a bit of a catch-all space for internal company updates, chatter, scheduling, etc. Our office “water cooler,” if you will.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-3.jpeg&quot; alt=&quot;Screenshot: an example “campfire” from Basecamp’s website.&quot;&gt;
+&lt;figcaption&gt;
+Screenshot: an example “campfire” from Basecamp’s website.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Throughout most days, we’re chatting in this basecamp’s “campfire.” It’s the place for small talk, saying “good morning,” and quick questions. The message board is home to “company wide” emails: news policies, reminders, updates, and so forth.&lt;/p&gt;
+
+&lt;h3&gt;Business Development and Invoicing&lt;/h3&gt;
+
+&lt;p&gt;These two internal projects are crucial to our company’s success, and—&lt;em&gt;I hope&lt;/em&gt;—pretty self-explanatory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Business Development&lt;/strong&gt; is where we track our project pipeline. Yes, yes, I know there are plenty of apps and services particularly designed for tracking biz dev flows—and we used to use a full-blown CRM for it—but we’ve found that basecamp works great for us. It’s not too complicated: we create a new “message board” thread for each project lead and log responses to that thread as the conversation with that potential client moves forward.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Invoicing&lt;/strong&gt; is—perhaps—even more important. We don’t have a dedicated admin employee. That work falls to me, and I often loose track of it amid the hustle &amp;amp; bustle of “the work.” The “Invoicing” basecamp is crucial in helping me stay on top of it. The basecamp consists of to-do lists—nothing else—and in it I set due dates for each client invoice from the start of a project to its completion. Simple &amp;amp; effective.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-4.png&quot; alt=&quot;Screenshot: Basecamp’s “Timelines” ensure you never miss a to-do, message, etc.&quot;&gt;
+&lt;figcaption&gt;
+Screenshot: Basecamp’s “Timelines” ensure you never miss a to-do, message, etc.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt;Employee 1+1s&lt;/h3&gt;
+
+&lt;p&gt;These are more aspirational than real at the moment, but the idea is to have a private (just for two people) basecamp for each 1+1 direct report relationship. That way the employee &amp;amp; manager have a private, shared space for notes, documents, follow up tasks, etc., from their 1+1 meetings.&lt;/p&gt;
+
+&lt;p&gt;I say it’s aspirational because I haven’t been very good about actually having 1+1 meetings, yet. It’s a goal.&lt;/p&gt;
+
+&lt;h2&gt;Two kinds of client projects, but a basecamp for each&lt;/h2&gt;
+
+&lt;p&gt;Basecamp is great for our internal project, but it really shines when we use it with clients. In fact, that’s what makes Basecamp so much better than other, similar platforms: it’s designed to be used for client services &lt;em&gt;(though not necessarily the way we’re doing it)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Generally speaking, we have two sorts of client project: short-term projects with clear deliverables and long-term projects where we become an everyday (remote) part of the client’s team. The former is &lt;a href=&quot;https://basecamp.com/3/clientside&quot;&gt;exactly what Basecamp was designed for&lt;/a&gt;, while the latter is a bit of an unusual use case, and so we vary our use of the platform accordingly.&lt;/p&gt;
+
+&lt;h3&gt;Short-Term Projects&lt;/h3&gt;
+
+&lt;p&gt;On our short term projects, we use Basecamp almost exactly the way that they describe it in their marketing materials: Our team tracks to-dos, discussions, etc., in a basecamp &lt;em&gt;(generally one per client, rather than one per deliverable)&lt;/em&gt; and the client’s primary contact(s) are looped into the “&lt;a href=&quot;https://basecamp.com/3/clientside&quot;&gt;clientside.&lt;/a&gt;”&lt;/p&gt;
+
+&lt;p&gt;This has worked out pretty well for us, though there were some early mistakes and lessons learned. Having some from Basecamp 2, where we gave full transparency in our basecamp &lt;em&gt;(née “project”)&lt;/em&gt; to the client, essentially &lt;em&gt;over&lt;/em&gt;-communicating, limiting our clients to the clientside was a major shift. The first few times we worked within this model, we accidentally &lt;em&gt;under&lt;/em&gt;-communicated because—honestly—we forgot we had to update them regularly on how things were going. Lesson learned.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-5.jpeg&quot;&gt;
+&lt;figcaption&gt;
+In Basecamp, we can easily share anything with our clients—without giving them unfettered access.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Now, we routinely create an “automatic check-in” to ask whether we need to check in with the client every weekday. We don’t need to check in with them every day, per se, but that way we don’t loose track of it.&lt;/p&gt;
+
+&lt;h3&gt;Ongoing retainer projects&lt;/h3&gt;
+
+&lt;p&gt;Our best &lt;em&gt;(i.e., most interesting &amp;amp; profitable)&lt;/em&gt; projects are ongoing strategic and support retainers. On those projects, we’re less in a “client services” role than in a “remote part of your everyday team” role. As such, our approach to using Basecamp is considerably different.&lt;/p&gt;
+
+&lt;p&gt;Rather than looping our clients into the “clientside” and updating them on our progress on a regular basis, our goal is to loop them into the full project.&lt;/p&gt;
+
+&lt;p&gt;I say “our goal” because not every client is interested or able to participate in that way: some view Basecamp as “a whole new thing” they don’t want to learn, and that’s fine. For those folks, we just take the “short-term project” approach and leave it at that. But most clients appreciate the increased transparency and ability to integrate with our process 100%, and we find that including them as partners in the basecamp reduces email communication significantly.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-6.png&quot;&gt;
+&lt;figcaption&gt;
+By including our ongoing retainer clients in our full basecamps, we can more easily track who’s doing what.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;By including our ongoing retainer clients as fully invested members of their project’s basecamp, we’re able to truly work hand-in-glove as a team. There’s never any question about what’s to-do and “to-done,” and that makes us far more confident and productive.&lt;/p&gt;
+
+&lt;h2&gt;Beyond Projects: Little big details that make the difference&lt;/h2&gt;
+
+&lt;p&gt;There are a bunch of “little big details” we love about working in Basecamp that are worth mentioning here.&lt;/p&gt;
+
+&lt;h3&gt;“Work Can Wait”&lt;/h3&gt;
+
+&lt;p&gt;One of the most fantastic additions to Basecamp in its most recent update was what they call “&lt;a href=&quot;https://medium.com/woah-basecamp-3/basecamp-3-work-can-wait-4adfb285c84b#.rvhqqyb0m&quot;&gt;work can wait&lt;/a&gt;.” It’s a totally new feature that allows you to add some sanity to your work-life balance by snoozing notifications on the server side when you’re off-the-clock.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-7.jpeg&quot;&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;While you can’t make it mandatory, I strongly encourage my team to make use of this feature. Our work is important—no doubt—and our clients (which are mostly political campaigns) often work around the clock, but that doesn’t mean we have to. If something’s truly urgent, the client will pick up the phone and call. Otherwise, work can wait until morning.&lt;/p&gt;
+
+&lt;h3&gt;Pings&lt;/h3&gt;
+
+&lt;p&gt;Pings aren’t too complicated: they’re direct messages to other team members within Basecamp, and they work great. Since we started using Basecamp our Google Hangouts (text, not video) use has been reduced to effectively zero.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-8.jpeg&quot;&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt;Search &amp;amp; Reporting&lt;/h3&gt;
+
+&lt;p&gt;I’m not sure my team likes this very much, but it’s huge for me as a manager. At any given time I can drill down into any aspect of the work that I need to.&lt;/p&gt;
+
+&lt;p&gt;What’s ______ been working on? What did ______ say about ______ the other day? What is overdue? What’s on the docket this week? It’s all at my fingertips, and that saves me a ton of time and stress.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/basecamp-9.jpeg&quot;&gt;
+&lt;/figure&gt;
+
+&lt;h2&gt;Honorable Mention: Other crucial apps and services&lt;/h2&gt;
+
+&lt;p&gt;Basecamp is the backbone of our business infrastructure, but there are a handful of other apps &amp;amp; services we use on a daily basis that would be hard—but not impossible—to live without.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://nationbuilder.com/&quot;&gt;NationBuilder&lt;/a&gt;, which we use on nearly every client project as the core of their digital &amp;amp; field infrastructure.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://apps.google.com/&quot;&gt;Google Apps for Work&lt;/a&gt;. Nearly everything we don’t create in Basecamp or NationBuilder we create in Google Apps. It’s absolutely indispensable.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hellosign.com/&quot;&gt;HelloSign&lt;/a&gt;. Every client project has a contract, and every client contract gets signed through HelloSign. (The Google Docs integration is clutch.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.getharvest.com/&quot;&gt;Harvest&lt;/a&gt;. We use Harvest to track our time and our invoices. It’d be hard to run our business without it.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cushionapp.com/&quot;&gt;Cushion&lt;/a&gt;. I started using Cushion when I was a freelancer, and it’s grown with my business. Thanks to it’s Harvest integration, I can fire it up at any time and see what projects I have outstanding, how heavily we’re booked, what invoices are outstanding, and how I’m tracking against our revenue goals. It’s invaluable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;We’re a young business, and we’re constantly re-evaluating our processes and priorities. But a few things are clear:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;We’re having a ton of fun doing work we love, which is a gift unknown to many;&lt;/li&gt;
+&lt;li&gt;We’re succeeding as a remote business that offers extraordinary freedom, flexibility, and autonomy to its employees; and&lt;/li&gt;
+&lt;li&gt;We couldn’t have done it without Basecamp.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why Google Play Music Won My Time, Attention, and Money</title>
+      <link>http://ianpatrickhin.es/wrote/why-google-play-music-won-my-time-attention-and-money</link>
+      <pubDate>Mon, 23 Nov 2015 16:19:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/why-google-play-music-won-my-time-attention-and-money</guid>
+      <description>&lt;p&gt;&lt;em&gt;Google designed the music app I’ve always wanted.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/google-music-1.png&quot; alt=&quot;google-music-1&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;A few days ago, my friend &lt;a href=&quot;https://medium.com/u/8a96bb51f0db&quot;&gt;Paul Armstrong&lt;/a&gt; &lt;a href=&quot;https://medium.com/darkchart-music/the-great-music-streaming-decision-of-2015-f30d459fd08f#.8hicm9g03&quot;&gt;wrote about&lt;/a&gt; his frustrations in finding a new streaming music provider in the wake of Rdio’s collapse. The TL;DR version is that Paul is reluctantly going to go with Spotify, despite his view that &lt;em&gt;“If Spotify’s design were a taco, it would be from Taco Bell, and consuming it will give you hate shits.”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;About a year ago, I started to get the sense that Rdio was in bad shape and decided to bail in search of a more permanent home for my music. That means I have about a 12 month head start on most of the folks who are suddenly scouring the internet in search of a not-crappy music service. And let me tell you what: I’ve found one. It’s called &lt;a href=&quot;https://play.google.com/music/listen&quot;&gt;Google Play Music&lt;/a&gt;, and it’s fantastic.&lt;/p&gt;
+
+&lt;p&gt;Now before I tell you why I love Google Play Music, let me set the stage a bit by telling you that it isn’t going to replace all the things you loved about Rdio. Google Play Music isn’t a social service. You’ll never see what your friends are listening to, or read reviews, or share playlists (or at least rarely). &lt;em&gt;(If those sorts of features are your main draw, stick with Spotify.)&lt;/em&gt; Google Play Music is, however, the best designed and most personally tailored music service available today.&lt;/p&gt;
+
+&lt;p&gt;So having gotten that out of the way, let me tell you what I dig about it.&lt;/p&gt;
+
+&lt;h2&gt;Material Design makes Google Play Music a joy to use&lt;/h2&gt;
+
+&lt;p&gt;I know, I know. Not everyone likes Material Design. It’s controversial — and it’s certainly a huge departure from Rdio’s aesthetic. But a lot of people (myself included) love it, and if you’re one of those people you’ll love Google Play Music.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-2.jpeg&quot; alt=&quot;Google Music Mobile&quot;&gt;
+&lt;figcaption&gt;
+Image courtesy of &lt;a href=&quot;https://yalantis.com/blog/music-apps-market-experience-music-apps-development/&quot;&gt;Yalantis&lt;/a&gt;.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As has become the trend with all of Google’s products, Play Music’s apps are essentially consistent across platforms. You could move between the web app, the iOS app, and the Android app and never really notice the difference. In every context, the app is easy to navigate, light on clutter, and offers strong visual hierarchy, etc.&lt;/p&gt;
+
+&lt;h2&gt;The Listen Now view&lt;/h2&gt;
+
+&lt;p&gt;“Listen Now” is probably the single most important part of Google Play Music. With it, Google is trying to help you decide—well—what to listen to now. And it’s damn good at it.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-3.png&quot; alt=&quot;Songza&quot;&gt;
+&lt;figcaption&gt;
+Web interface screenshot courtesy of &lt;a href=&quot;http://www.androidcentral.com/google-play-musics-new-web-interface-goes-material-fresh-android-design&quot;&gt;Android Central&lt;/a&gt;.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I often find that even though I know what I like, I don’t always know what I am in the mood for. I’m busy working, or driving, or whatever, and I just want some good music. Now. Google gets that, and instead of presenting me with a long list of albums, or suggestions about what my friends are listening to (both of which require me to make a considered decision about what to choose), they offer me essentially three options:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;A set of mood- and activity-driven radio stations powered by Songza (more on that below);&lt;/li&gt;
+&lt;li&gt;A reverse-chronological selection of the stuff I’ve listened to recently, in case I’m still in that headspace; and&lt;/li&gt;
+&lt;li&gt;A series of recommended albums and radio stations—some from my library and some I’ve never heard—based on my listening history.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I would venture to say that I choose what to listen to from these recommendations about 70% of the time. They’re that good.&lt;/p&gt;
+
+&lt;h2&gt;A service built on machine learning, not on “social” discovery&lt;/h2&gt;
+
+&lt;p&gt;One of the things that makes Play Music’s recommendations so good is that they’re based entirely on my own listening habits. There’s no “social” component to the service (you can’t follow friends, etc.), and that means that I’m not being bombarded with every friend’s bad music choices, recommendations about what to listen to based on my friends, etc. Instead, Google’s constantly learning what I like and helping me explore new artists in that space.&lt;/p&gt;
+
+&lt;p&gt;I know that the social aspect of Rdio was one of its biggest successes, and as such it’s one of the things that people leaving the service are most looking for. But Spotify’s half-assed approach to social just isn’t the same—not even close. And my view is that I’d rather have a highly-tailored personal library than a junk drawer of other people’s playlists and “currently listening” info.&lt;/p&gt;
+
+&lt;p&gt;Frankly, most of the people I know on Facebook don’t share my taste in music, and Spotify makes it so hard to find people who &lt;em&gt;do&lt;/em&gt; share my taste in music that their “social” features feel like more of a nuisance than a feature. With Google Play Music, none of that is an issue. It’s a totally different approach, and it’s executed wonderfully.&lt;/p&gt;
+
+&lt;h2&gt;A station (playlist) for every moment, powered by Songza&lt;/h2&gt;
+
+&lt;p&gt;As I mentioned before, one of the core features of Google Play Music is its “stations” — which split into three categories:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Curated playlists powered by Songza, which Google acquired in July 2014;&lt;/li&gt;
+&lt;li&gt;Suggested playlists based on artists or albums that you like; and&lt;/li&gt;
+&lt;li&gt;User-created stations (much like any other streaming music service would offer).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;But it’s the Songza stations that really stand out. If you’re not familiar with the approach, let me walk you through it.&lt;/p&gt;
+
+&lt;p&gt;First, Google Play Music will offer you a few moods/activities that are appropriate to the day of the week &amp;amp; time of the day/year. These are not a fixed set of choices, and vary throughout the day. And they’re surprisingly spot-on.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-4.png&quot; alt=&quot;Listen Now&quot;&gt;
+&lt;figcaption&gt;
+This screenshot was taken at 8:21pm on November 23, 2015, and shows the sorts of things I might do in the evening.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Once you’ve picked an activity—I chose “unwinding”— you’re presented with a few genres to choose from. I chose “Mellow Indie.” (Don’t judge.)&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-5.png&quot; alt=&quot;Stations&quot;&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Lastly, you’re offered a choice of three (no more, no less) different “stations”—i.e., playlists—to choose from.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-6.png&quot; alt=&quot;Stations&quot;&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In more than a year of using the service, I’ve consistently found the quality of curation in these stations to be exceptional. Whole days go by when this is the only way I listen to music. It’s one of my primary methods for finding new artists, etc.&lt;/p&gt;
+
+&lt;h2&gt;“I’m Feeling Lucky Radio”&lt;/h2&gt;
+
+&lt;p&gt;Alright, so the curated stations are fantastic. And they’re timely and appropriate to your taste and the time of day. Cool. But like I said before: sometimes I just want some music and I don’t want to think about it. I just want something good. Now.&lt;/p&gt;
+
+&lt;p&gt;Well, Google’s got me covered with “I’m feeling lucky radio.”&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-7.png&quot; alt=&quot;I’m Feeling Lucky Radio&quot;&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is like a “magic station.” Based on what you like—the stuff in your library, the stuff you listen to, etc.—Google will make a personalized radio station just for you. And every time you click the button, it’ll refresh the station.&lt;/p&gt;
+
+&lt;p&gt;For me, sometimes it’s 80s music. Sometimes it’s indie. Sometimes it’s pop punk. Movie scores. Etc. It’s genuinely random, but it’s always good, which is the perfect feature for those times when you honestly just don’t know what you want.&lt;/p&gt;
+
+&lt;h2&gt;You can bring your music with you&lt;/h2&gt;
+
+&lt;p&gt;I don’t personally make extensive use of this feature, but it’s a big deal: Google lets you upload your own MP3s to your Play Music library, and those tracks (or full albums) will be available for streaming anywhere. That means for you audiophiles who’ve spent years building up iTunes libraries of obscure, hard-to-find music, you’ll finally be able to access it in the cloud.&lt;/p&gt;
+
+&lt;p&gt;What’s striking to me about this is that Google’s “limit” is 50,000 tracks. Fifty thousand. Spotify, by comparison, seems to cap your personal library at 900 albums. That speaks to a fundamental difference in approach between the two services: Spotify wants to make your experience about playlists and tracks, while Google wants to make your experience about building a personalized music library.&lt;/p&gt;
+
+&lt;p&gt;Plus, a bonus: if you’ve bought Taylor Swift’s “1989” you can upload it to your library and play it anywhere. I know. I did.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/google-music-8.png&quot; alt=&quot;Taylor Swift&quot;&gt;
+&lt;figcaption&gt;
+Yep. Streaming anywhere.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2&gt;The Bottom Line&lt;/h2&gt;
+
+&lt;p&gt;Honest to God, I could go on and on listing “little big details” that I love about Google Play Music (like how it automatically caches streamed music on your mobile device so your recents are available offline, whether you’ve manually saved them or not), but I think you get the point. I’m a big fan of the service.&lt;/p&gt;
+
+&lt;p&gt;Before you hop from Rdio (R.I.P.) to Spotify, do yourself a favor and try Google Play Music for a month. Don’t just settle for the service you actively disliked only a week ago. Google’s approach is different—no doubt about it—but I think you’ll like it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Want to raise more money &amp; find more volunteers? Invest in organizing.
+</title>
+      <link>http://ianpatrickhin.es/wrote/want-to-raise-more-money-find-more-volunteers-invest-in-organizing</link>
+      <pubDate>Wed, 04 Nov 2015 22:13:00 -0500</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/want-to-raise-more-money-find-more-volunteers-invest-in-organizing</guid>
+      <description>&lt;p&gt;For nearly a decade, conservative campaigns &amp;amp; causes have been trying to figure out the “secret” to the left’s success. How do they raise so much money online? Why are their supporters so “fired up?” And — most imporantly — what do we need to do to harness this power?&lt;/p&gt;
+
+&lt;p&gt;Do they have some killer app that we don’t have? Or maybe an expert analytics team? Is it big data? Millennials? Snapchat?&lt;/p&gt;
+
+&lt;p&gt;No. The answer is shockingly simple: they build, engage, and activate grassroots communities.&lt;/p&gt;
+
+&lt;p&gt;The left is able to consistently raise big money through small donations and turn out voters to the polls because they build their campaigns around engaging voters person-by-person. They build real, meaningful relationships with their campaign’s supporters.&lt;/p&gt;
+
+&lt;p&gt;This isn’t a tech problem: it’s a strategic opportunity. Early investments in digital &amp;amp; field yield game-changing returns over the course of a campaign.&lt;/p&gt;
+
+&lt;p&gt;If conservatives are serious about closing the gap, we have to commit to building, engaging, and activating grassroots communities. And that’s an ongoing project. It needs to be done per campaign, per cycle. That organizing isn’t transferable. You can’t inherit it. Every candidate needs to personally earn the emotional investment of grassroots supporters each cycle. Support can never be assumed, and does not necessarily transfer between candidates / campaigns / cycles.&lt;/p&gt;
+
+&lt;p&gt;Organizing is at the very core of what campaigning is all about. And the sooner we recognize that and act accordingly, the better.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The GOP Doesn’t Have a Tech Problem. We have a culture problem.</title>
+      <link>http://ianpatrickhin.es/wrote/the-gop-doesnt-have-a-tech-problem-we-have-a-culture-problem</link>
+      <pubDate>Fri, 30 Oct 2015 22:12:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/the-gop-doesnt-have-a-tech-problem-we-have-a-culture-problem</guid>
+      <description>&lt;p&gt;You don’t have to look very far to find an article digging into the Republican Party’s challenges “closing the tech gap.” We lag behind in software, in talent, in… you get the idea. It’s a narrative that the media loves, and it’s totally bogus.&lt;/p&gt;
+
+&lt;p&gt;The GOP doesn’t have a tech problem. We have a culture problem. And it’s time we fix it.&lt;/p&gt;
+
+&lt;p&gt;With the exception of some very bespoke software that could be employed by a few campaigns (presidential campaigns, for example), the Republican candidates and party committees have access to all the tools that they need to run sophisticated, data-driven campaigns. The problem is that we’re not using them well. We aren’t lacking the tool we need to compete, we’re failing to rethink our strategies and tactics for our new, digital landscape.&lt;/p&gt;
+
+&lt;p&gt;Take bulk email as an example. Every campaign in America has affordable access to the tools they need to run an effective email campaign. The market has solved the tech problem: there are a variety of bulk email and online fundraising platforms that are (a) available to anyone and (b) easy to set up and use. But nevertheless, Republican campaigns often trail their Democratic opponents in list building, online fundraising, and grassroots organizing. Why?&lt;/p&gt;
+
+&lt;p&gt;Democrats are using fundamentally the same tech as Republicans: sending bulk email, accepting online donations, etc. Software or data modeling alone cannot explain the disparity in performance. The difference is cultural, not technological. Democrats get that email fundraising is about relationships and grassroots organizing. Republicans think it’s about advertising and volume.&lt;/p&gt;
+
+&lt;p&gt;If Republican campaigns and party committees are serious about closing the digital &amp;amp; field organizing gap with Democrats, we need to start by rethinking our approach:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Instead of treating email like direct mail, and tweets like press releases, we need to recognize that these are intensely personal mediums with their own norms, taboos, and best practices.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;When building our campaign teams, we need to give our digital folks an equal seat at the table to finance, field, and communications. If every draft email has to get approved (and therefore rewritten) by a finance or communications person with a background in direct mail or TV, there’s little sense in hiring a digital team in the first place.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;It’s true that some situations require bespoke software, but those situations are few and far between. Most of the tools we need to run modern campaigns exist as off-the-shelf, market ready products. You can save time, money, and stress by using them.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’re not hurting for technology. In fact, most of our campaigns have actually have access to more useful technology than they know what to do with. Our real problem is an unwillingness to embrace the new model of digital &amp;amp; field organizing that’s needed to get value out of the software we have.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to prioritize during a campaign’s start-up phase
+</title>
+      <link>http://ianpatrickhin.es/wrote/what-to-prioritize-during-a-campaigns-start-up-phase</link>
+      <pubDate>Thu, 22 Oct 2015 22:10:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/what-to-prioritize-during-a-campaigns-start-up-phase</guid>
+      <description>&lt;p&gt;Campaigns in the digital age are still all about grassroots organizing, driven by authentic storytelling, direct voter contact and leadership development. What’s changed is that a new generation of digital tools and tactics has allowed us to take that voter contact to scale.&lt;/p&gt;
+
+&lt;p&gt;So how do you shape your campaign’s strategy — and therefore its budget — to capitalize?&lt;/p&gt;
+
+&lt;p&gt;Prioritize the early investments in digital and field that will yield results for your campaign over the long term. After launching, your first priority — no surprise — should be hiring an experienced and proficient finance director.&lt;/p&gt;
+
+&lt;p&gt;Campaigns still run on money, and early checks from within your network will help pay for crucial investments in the infrastructure necessary to win. But long term, your finance director will be working hand-in-glove with your digital team, so you’ll want to find someone with a track record of excelling at both online and offline fundraising.&lt;/p&gt;
+
+&lt;p&gt;Once you’ve established a viable fundraising base, it’s time to build a base of actual support among voters. In the Reagan or Clinton eras, you’d have done this with direct mail and broadcast TV. Now, you’d do well to focus your attention online — where your dollars will stretch further and your message can be delivered (and tested) more precisely. How precisely?&lt;/p&gt;
+
+&lt;p&gt;With digital ads on Facebook, Google, and Twitter you can say with certainty that your spots are being shown in-district. Unfortunately, that’s just not true for TV ads.&lt;/p&gt;
+
+&lt;p&gt;In fact, last cycle $245 million was spent on TV ads shown to viewers in the wrong districts, according to &lt;a href=&quot;http://www.50statesofwaste.com/index.html?p=top10&amp;amp;d=9&quot;&gt;an analysis&lt;/a&gt; by Targeted Victory. Put another way, $0.75 of every dollar spent on broadcast TV was wasted. With digital’s ability to guarantee that ads are shown in district — and, if done properly, to specific individuals within the district — your ad budget will never be wasted online. The National Republican Senatorial Committee now recommends that campaigns plan to spend roughly 30 percent of their overall budget online ads alone — not counting their website and consultants.&lt;/p&gt;
+
+&lt;p&gt;Taken altogether, this means that means your next big investment is in your campaign’s digital team. This group should have an expansive role within your campaign, regularly coordinating with and helping to shape advertising, communications, data, field, fundraising and scheduling.&lt;/p&gt;
+
+&lt;p&gt;In these early days, their first priority will be to help deploy your campaign’s infrastructure: a website built for action, a database of supporters (and prospective supporters), online advertising and fundraising tools, social media, and an email delivery system.&lt;/p&gt;
+
+&lt;p&gt;Unless you’re running a billion dollar national campaign, you’ll want to hire an experienced consultant for this role, rather than try to staff it in-house. Pricing structures can vary from shop to shop, but you can reasonably expect to spend about 10 percent of your campaign’s budget on your digital team’s consulting fees.&lt;/p&gt;
+
+&lt;p&gt;There are no shortcuts in building a supporter base that’ll yield online fundraising revenue and carry you to victory on Election Day, and your campaign shouldn’t try to take any. Buying emails or renting lists all seem like quick, cost effective ways to grow your email list and balloon your online fundraising. But you’ll quickly find that they won’t perform for you, even if they did for their original owners. Instead, you’ll need to invest money early in targeted digital advertising and build a list of genuine supporters. You’ll get better results from a 10,000 person list of genuine supporters than a 100,000 person list you bought from a firm or borrowed from an ally.&lt;/p&gt;
+
+&lt;p&gt;As your fundraising ramps up, your next big investment should be in your field operation. The days of winning an election through broadcast television and direct mail are largely over. Now, elections are one by grinding it out door to door, talking to voters and building relationships. Pouring the money you raise online and on the phones back into a strong field program will be one of the smartest, and most cost-effective investments your campaign will make.&lt;/p&gt;
+
+&lt;p&gt;All this isn’t to say that you shouldn’t budget money for TV, radio, and direct mail — by all means do so. But your campaign’s first investments ought to be in the critical digital and field infrastructure necessary to raise money, identify supporters, and turn out the vote on Election Day.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This article originally appeared in &lt;a href=&quot;http://www.campaignsandelections.com/campaign-insider/2561/what-to-prioritize-during-a-campaign-s-start-up-phase&quot;&gt;Campaigns &amp;amp; Elections Magazine&lt;/a&gt; online.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Wand Chooses the Wizard: Lessons in Email Marketing for Political Campaigns</title>
+      <link>http://ianpatrickhin.es/wrote/the-wand-chooses-the-wizard-lessons-in-email-marketing-for-political-campaigns</link>
+      <pubDate>Tue, 20 Oct 2015 22:07:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/the-wand-chooses-the-wizard-lessons-in-email-marketing-for-political-campaigns</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“The wand chooses the wizard, Mr. Potter. It’s not always clear why.” &lt;em&gt;—Mr. Ollivander, Harry Potter and the Sorcerer’s Stone&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s 2015, and by now most of the western world is at least somewhat familiar with the J.K. Rowling’s “Harry Potter” stories. One of the recurring themes of these stories is that magic wands have personalities and loyalties. &lt;em&gt;“The wand chooses the wizard,”&lt;/em&gt; we’re told. And attempting to use a wand that has not chosen you will yield… less than perfect results.&lt;/p&gt;
+
+&lt;p&gt;We see this happen throughout the stories again and again. When Harry’s wand breaks, he borrows Hermione’s. When Voldemort realizes that his wand can’t defeat Harry’s, he attempt to use Lucius Malfoy’s. When Draco’s wand changes allegiance and becomes Harry’s, Draco uses his mother’s. In each case the new, borrowed wand performs in a substandard way, despite having been a perfectly good wand for its previous owner.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It’s my mother’s [wand], it’s powerful but it’s… not the same. It doesn’t quite… understand me, know what I mean?
+—Draco Malfoy, Harry Potter and the Deathly Hallows: Part 2&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In political campaigns, our email lists are not so different. Like Rowling’s wands, our email subscribers choose their lists. It’s not always clear why. But what is clear is that — in every case — if you try to use someone else’s email list for yourself it will perform in a substandard way, no matter how well it performed for its original owner.&lt;/p&gt;
+
+&lt;p&gt;Like Draco’s mother’s wand, your bought or borrowed email list may — indeed — be powerful. But its subscribers did not choose you; they don’t “understand you.” In fact, they may even resent hearing from you. You won’t get the results that the lists original owner got, and what’s worse — you may even do yourself damage by emailing it.&lt;/p&gt;
+
+&lt;p&gt;In “Harry Potter,” this truth about wands is known to all wizards. In fact, it was one of the very first lessons in wizardry that Mr. Potter was taught — even before he arrived at Hogwarts. In political campaigns, we too know this truth as well: any consultant who’s worked on the digital or fundraising side of campaigns has seen how poorly bought or borrowed lists perform. And yet — in both the wizarding world and the world of political campaigns — desperate individuals continue to turn to tactics that they know will betray them. Why?&lt;/p&gt;
+
+&lt;p&gt;For campaigns, the answer is twofold:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;There’s a broad misunderstanding about the nature of email consent, deliverability, and what makes a “quality” list.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The immense pressure to show early fundraising momentum and relatively short timelines of campaigns tempts candidates and campaign managers to forego important investments in list building in favor of “quick fixes.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The best email lists in politics — Bernie Sanders’ list in 2015, Barack Obama’s list in 2012, etc. — were built organically, one subscriber at a time. They perform well because each subscriber is personally invested in the outcome of the campaign, and looks forward to hearing from the candidate. They are genuine lists of supporters, not just collections of email addresses, and there’s only one way to get a list like that: investing early in grassroots list-building and doing it yourself.&lt;/p&gt;
+
+&lt;p&gt;There are plenty of people out there who’ll sell you an email list and promise the world. Generally, they’ll charge you for access — not for results. That tells you everything you need to know about the quality of those lists.&lt;/p&gt;
+
+&lt;p&gt;List rentals, email appends, and shared lists (from political allies, for example) all seem like quick, cost effective ways to grow your email list and balloon your online fundraising. But you’ll quickly find that — like a stolen or borrowed wand — they won’t perform for you, even if they did for their original owners. They’ll betray you at their first opportunity, through bad emails, spam reports, and unsubscribes that — taken together — will cause email providers to see you as a spammer. Because you have become one.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why I’ve decided to embrace Medium</title>
+      <link>http://ianpatrickhin.es/wrote/why-ive-decided-to-embrace-medium</link>
+      <pubDate>Thu, 15 Oct 2015 22:02:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/why-ive-decided-to-embrace-medium</guid>
+      <description>&lt;p&gt;Since Medium announced their most recent round of funding, feature improvements, and design changes, Twitter has been buzzing with two themes:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;More and more people using the platform; and&lt;/li&gt;
+&lt;li&gt;A small (but vocal) group of folks making clear that Medium’s nice, and all, but it’s just not for them.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For a long time, I was with that second group. &lt;em&gt;“I want to own my content on my own domain,”&lt;/em&gt; I argued. I didn’t like that Medium’s “reading list” recommended other articles that weren’t mine, or that readers may never make it back to my own website. And I didn’t see why I should help Medium build its business through my own hard work.&lt;/p&gt;
+
+&lt;p&gt;But over time, my feelings have changed. Now, I’ve become a strong fan of the platform. I’ve moved nearly all of my writing here, including opening up two custom-domained “&lt;a href=&quot;https://medium.com/@ianpatrickhines/publications&quot;&gt;Publications&lt;/a&gt;.” I’m really enjoying it — so much so that I’ve become a bit of an evangelist. So what happened?&lt;/p&gt;
+
+&lt;h2&gt;Visiting Medium’s office in San Francisco&lt;/h2&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/assets/medium-hq.jpeg&quot; alt=&quot;Photo: Medium’s HQ&quot;&gt;
+&lt;figcaption&gt;
+&lt;p&gt;Image courtesy of &lt;a href=&quot;http://www.officelovin.com/2014/10/30/inside-mediums-san-francisco-offices/&quot;&gt;Office Lovin’&lt;/a&gt;.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Earlier this year I attended the &lt;a href=&quot;http://lincolnlabs.com/&quot;&gt;Lincoln Labs&lt;/a&gt; conference in San Francisco, and while I was in town I had the chance to go to a lunch at Medium’s HQ. Why? Because &lt;a href=&quot;https://medium.com/u/d07ce44c4aac&quot;&gt;Matt Higginson&lt;/a&gt; and &lt;a href=&quot;https://medium.com/u/5402e692ba21&quot;&gt;Jack Gerard&lt;/a&gt; — from Medium’s team — reached out to me directly and invited me. It was the sort of exercise in community building that really wins me over. (I am an organizer, after all.)&lt;/p&gt;
+
+&lt;p&gt;Visiting their office and hearing Matt and Jack talk about the company’s vision really gave me a new perspective on the platform. They’re focused on building exactly the sort of community I want to be a part of: one focused on empowering people, elevating ideas, and including — even encouraging — diverse viewpoints.&lt;/p&gt;
+
+&lt;p&gt;I was also blown away by what I saw in the office. The staff was mostly gone for the weekend, and all around there were artifacts of their incredible attention to detail. A whole area dedicated to comparing and evaluating different typefaces, dashboards dedicated to encouraging feedback between teams, etc. It was exactly the sort of culture I’d want to encourage in my own business, and I’m keen to support that however I can.&lt;/p&gt;
+
+&lt;h2&gt;Opening up custom domains to publishers&lt;/h2&gt;
+
+&lt;p&gt;One of my primary concerns — initially — was that I didn’t want everything I wrote to live at a Medium.com URL. Call my old fashioned, but I like the idea of having my writing — particularly my business writing — live at a domain I can brand.&lt;/p&gt;
+
+&lt;p&gt;But in March, they started opening up &lt;a href=&quot;https://medium.com/the-story/custom-domains-for-publications-8cb161d9651&quot;&gt;custom domains for publishers&lt;/a&gt;. That pretty much nipped that concern in the bud.&lt;/p&gt;
+
+&lt;p&gt;Now, I have two “publications” &lt;em&gt;(i.e., blogs)&lt;/em&gt; that both live at custom domains: ideas.beag.co &amp;amp; digitalfield.co. BEAG Ideas is dedicated to short, unpolished posts about or around my company, and Digital+Field is geared towards exploring the shared future of digital and field strategy in politics. Both are intended to have broad audiences and multiple authors, and my company’s marketing site didn’t feel like the right home for either of them. Medium is just the right environment for that writing.&lt;/p&gt;
+
+&lt;h2&gt;A shift in my own expectations&lt;/h2&gt;
+
+&lt;p&gt;It totally makes sense to me why someone who’s spent an enormous amount of energy building a brand around their writing — a professional blogger or podcaster, for example — would be reluctant to embrace Medium. There’s a real risk that any short-term gain that they realize would be undercut by a long-term devaluation of their brand. Even cross-posting the content could be a risk, so their natural inclination is to shy away from the platform as a whole.&lt;/p&gt;
+
+&lt;p&gt;I used to see myself as part of this group — using my writing to build up my brand and drive traffic to my site — but that feels less and less the case with each passing week. My brand, and my company’s brand, has become more and more about the work we do and less and less about my writing, and with that shift my comfort in writing elsewhere has increased.&lt;/p&gt;
+
+&lt;p&gt;My goal — now — is more to participate in the marketplace of ideas than it is to build an archive of my own. I’ve come to feel that the value of my writing is not the growth of my personal brand but how sharing my idea can help start or progress a conversation around the topics I care about. If doing so helps draw attention back to me and my business, that’s great; but if an individual article — like this one — gets read at all, that’s an end unto itself for me.&lt;/p&gt;
+
+&lt;p&gt;Conveniently, this change in my goals &amp;amp; expectations has allowed me to take a lot of pressure off of myself as a writer. I no longer feel like I have to post on a particular schedule, or maintain a certain type or pace of content. Instead, I feel free to write often about whatever interests me in the moment — knowing full well that (unless I intentionally add the post to a publication) they all just flow into a series of independent posts. It’s been quite liberating. Giving up on “blogging” has made writing fun again.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I don’t maintain my own, self-hosted microblog: I regularly share my thoughts on Twitter. And I have never felt that — by doing so — I was sacrificing my control over my own brand. Similarly, writing on Medium no longer feels like relinquishing my own writing to someone else. It’s a fantastic platform for articulating and sharing ideas, and not a half bad place to write.&lt;/p&gt;
+
+&lt;p&gt;Over the past month, I’ve found that — after email and Twitter — Medium has become the most used app on my phone and the most visited website in my desktop browser. Almost every time I visit, I find something interesting to read and a new idea I want to articulate in writing. Like I said: it’s made reading and writing on the internet fun again.&lt;/p&gt;
+
+&lt;p&gt;It’s definitely not for everyone but — as a former skeptic — I thought it was worth taking a minute to explain why it’s right for me.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Some quick thoughts on building — and sustaining — a quality team</title>
+      <link>http://ianpatrickhin.es/wrote/some-quick-thoughts-on-buildingand-sustaininga-quality-team</link>
+      <pubDate>Thu, 15 Oct 2015 22:00:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/some-quick-thoughts-on-buildingand-sustaininga-quality-team</guid>
+      <description>&lt;p&gt;I just read this short blog post by &lt;a href=&quot;https://medium.com/u/54bcbf647830&quot;&gt;DHH&lt;/a&gt; about the broken language — and indeed the broken mindset — of hiring. It conveys exactly how I feel about building a team at &lt;a href=&quot;http://the.beag.co/&quot;&gt;The BEAG Co.&lt;/a&gt;, and I wanted to share it here.&lt;/p&gt;
+
+&lt;p&gt;This bit, in particular, is key:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Employees should go wherever they can get the best deal for themselves. I would! Better deal in the holistic sense of everything that’s involved with working for someone else: Most interesting and rewarding work, most freedom in living arrangements, autonomy/responsibility, and, yes, pay and benefits.&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;p&gt;All your energy should be poured into making sure you have the better deal. That work aligns perfectly with having a better business in general, so it’s not like you’re taking a detour here.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Preach.&lt;/p&gt;
+
+&lt;p&gt;I want people to join our team, and remain a part of it, because they want to be here. &lt;em&gt;Period.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;If I want my team to be invested in the long term future of the company, I need to be invested the long-term future of my team. I need to give people the trust and autonomy to do their jobs properly — including the autonomy to make mistakes. I need to support them as they grow as people and as professionals. And I need to compensate them fairly, even generously, for the work that they do.&lt;/p&gt;
+
+&lt;p&gt;That’s a big part of why I’m hiring so slowly: I don’t want to hire a larger team than I can support emotionally, professionally, and financially. But in the end, I believe that this approach will yield a happier, more cohesive, and more effective team.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>I don’t care about your burn rate</title>
+      <link>http://ianpatrickhin.es/wrote/i-dont-care-about-your-burn-rate</link>
+      <pubDate>Tue, 13 Oct 2015 21:58:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/i-dont-care-about-your-burn-rate</guid>
+      <description>&lt;p&gt;A few minutes ago, a friend of mine tweeted this and it caught my attention.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The more I hear about political campaign &amp;ldquo;burn rates,&amp;rdquo; the sillier this sounds. No prize for having the most money left in the bank &amp;amp; losing&lt;/p&gt;&amp;mdash; Steve Johnston (@StevenEJohnston) &lt;a href=&quot;https://twitter.com/StevenEJohnston/status/653749799309733888&quot;&gt;October 13, 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I’ve been circling around a similar thought as we’ve rolled through the most recently quarterly FEC reporting deadline, and I think Steve’s right. The “burn rate” is a silly metric.&lt;/p&gt;
+
+&lt;p&gt;For those unfamiliar with the term, a campaign’s “burn rate” is the rate at which they’re &lt;em&gt;spending&lt;/em&gt; the money that they’re &lt;em&gt;raising&lt;/em&gt;. It’s good to have a low “burn rate” — the conventional wisdom goes — so that you have more cash-on-hand. More cash on hand means you’re “stronger.”&lt;/p&gt;
+
+&lt;p&gt;Like Steve, I don’t buy it. Campaign’s cost money, and — as Steve says — there’s no prize for having the most money and losing.&lt;/p&gt;
+
+&lt;p&gt;Spending a lot money means nothing more than that you’re acting, rather than laying in wait. But an irrational fear of low cash-on-hand can lead you to forego &lt;a href=&quot;http://www.politico.com/magazine/story/2015/10/gop-tv-ads-ground-game-213225&quot;&gt;crucial early investments&lt;/a&gt; in digital and field that’ll lay the groundwork for success down the stretch.&lt;/p&gt;
+
+&lt;p&gt;The truth is that I don’t care about your campaign’s “burn rate.” It’s a vanity metric that the media focuses on because it’s easy to grok. But campaigns aren’t businesses, and the goal isn’t profit. The goal is victory.&lt;/p&gt;
+
+&lt;p&gt;If you’re spending what you’re raising on smart, forward-thinking investments in critical campaign infrastructure, more power to you. If you’re blowing it on non-essential things like expensive hotels and branded tour buses, that’s a leading indicator of deeper problems within a campaign. But either way, don’t just sit on the money in order to get a positive press story because while you do your opponent — the one with the huge “burn rate” — is laying the foundation to beat you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sharing BEAG Ideas
+</title>
+      <link>http://ianpatrickhin.es/wrote/sharing-beag-ideas</link>
+      <pubDate>Fri, 09 Oct 2015 21:54:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/sharing-beag-ideas</guid>
+      <description>&lt;p&gt;When I started freelancing in 2013, I didn’t have all the answers. I still don’t. But I found that sharing my ideas, hopes, and fears with others on my blog helped me to refine them, and ultimately I am better for having done that.&lt;/p&gt;
+
+&lt;p&gt;When I founded &lt;a href=&quot;http://the.beag.co/&quot;&gt;The BEAG Co.&lt;/a&gt; earlier this year, I had planned to continue that practice of sharing knowledge and (half-formed) ideas on my blog — and, indeed, encouraging my growing team to do so as well. But it just didn’t happen that way. As the company grew, I found I had less and less time to write (or at least I made less time for it). And with it now being a company blog — not just my personal space — I felt like the bar was much higher. So high, I stopped trying to reach for it.&lt;/p&gt;
+
+&lt;p&gt;But the truth is that ideas don’t need to be fully formed to be worth sharing, and I want to lead a team that’s comfortable — even eager — to come forward with outside the box thoughts. I want us to participate in the larger political strategy, tech, and design communities. And I want us to be unafraid to go out on a limb, try something new, and learn from our mistakes. Because without taking risks there are no rewards.&lt;/p&gt;
+
+&lt;p&gt;And so, encouraged by Ev Williams’ &lt;a href=&quot;https://medium.com/inside/hatching-inside-medium-5ae60292d655&quot;&gt;Inside Medium&lt;/a&gt;, I’m opening up a new publication on Medium called &lt;a href=&quot;https://medium.com/beag-ideas&quot;&gt;BEAG Ideas&lt;/a&gt; — a place for out-loud thinking and conversation starting. I’m setting the bar intentionally low, because here the goal is to foster curiosity and discussion. Posts will be raw, they will be half-formed, etc. And that’s great.&lt;/p&gt;
+
+&lt;p&gt;“BEAG Ideas” will come with a sister publication — &lt;a href=&quot;https://medium.com/digital-field&quot;&gt;Digital+Field&lt;/a&gt; — where we’ll explore the shared future of digital and field strategy in politics in greater detail (and a bit more polish). I hope you’ll consider subscribing to them both.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to easily ensure that you’re using a secure (SSL-encrypted) donation page
+</title>
+      <link>http://ianpatrickhin.es/wrote/how-to-easily-ensure-that-youre-using-a-secure-ssl-encrypted-donation-page</link>
+      <pubDate>Thu, 08 Oct 2015 21:51:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/how-to-easily-ensure-that-youre-using-a-secure-ssl-encrypted-donation-page</guid>
+      <description>&lt;p&gt;When Texas Senator Ted Cruz announced this week that he would seek the Republican presidential nomination, the national conversation quickly shifted to troubles with his new campaign website. Specifically, pundits quickly — and rightly — pointed out that&lt;a href=&quot;http://www.msnbc.com/msnbc/dear-ted-cruz-imagine-its-2015-and-online-security-real-concern&quot;&gt; Cruz’s donation page was not properly secured&lt;/a&gt;. This left Cruz’s donors vulnerable to what is known as a “man-in-the-middle” attack, in which a hacker impersonates one of the endpoints in the transaction and steals a donor’s credit card information.&lt;/p&gt;
+
+&lt;p&gt;Now the truth is that the deficiencies with Senator Cruz’s website are incredibly common — particularly in political campaign websites. Here’s how it happens:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;an organization builds their website using a popular content management system (NationBuilder, WordPress, etc.);&lt;/li&gt;
+&lt;li&gt;then, they choose a payment processor (like Piryx, for example) with an “embeddable widget” that can be inserted as an iFrame on any page; and&lt;/li&gt;
+&lt;li&gt;They insert that “widget” on a non-secured page on their site.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The result is a “secure” donation form embedded within an “insecure” page on your site, making your donors susceptible to the aforementioned “man-in-the-middle” attack. It’s a bad, easily avoidable mistake that you shouldn’t fall victim to.&lt;/p&gt;
+
+&lt;p&gt;So what should you do instead?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;If you’re using &lt;a href=&quot;http://nationbuilder.com/?recruiter_id=219736&quot;&gt;NationBuilder&lt;/a&gt;, you should absolutely use their built-in donation page functionality. Every NationBuilder website supports a fully-functional, SSL-encrypted donation page template that’ll allow you to raise money while completely avoiding this problem. And you can connect that donation page to any of at least seven different payment processors.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;But what’s even better is that — unlike most third-party donation “widgets” — NationBuilder’s templates are totally customizable. You can make a NationBuilder donation page look like just about anything you can imagine: a multi-step form, all on one page (one or two columns), add custom fields, etc. The options are pretty much limitless, and the result is much more control over your donors experience than you’d get with a third-party tool.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you’re not using NationBuilder, or if you’re intent on using a third-party donation tool, just don’t embed the donation form on your site. Link to it. This is a common approach on the Democratic side with campaigns / organizations fundraising through &lt;a href=&quot;http://actblue.com&quot;&gt;ActBlue&lt;/a&gt; or NGP VAN, and a perfectly valid way to handle your online donations.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The bottom line is this: take the time to make sure you’re using an SSL-encrypted donation page. And if you’re not sure whether you are, or how to do it, just ask a professional. This is something that won’t cost you any money, but could cost you donations (and bad press!), so you want to make sure you do right from Day One.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Can you foster a healthy work culture in a client services business?</title>
+      <link>http://ianpatrickhin.es/wrote/can-you-foster-a-healthy-work-culture-in-a-client-services-business</link>
+      <pubDate>Wed, 09 Sep 2015 21:36:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/can-you-foster-a-healthy-work-culture-in-a-client-services-business</guid>
+      <description>&lt;p&gt;When I tell people what I do for a living, I’m often met with looks of jealousy and disbelief. You see, I run a small web design &amp;amp; digital consulting business. I work at home, set my own hours, pick my own clients, and wear whatever clothes I like. &lt;em&gt;(As I write this, I’m wearing no shoes.)&lt;/em&gt; I’m living the millennial dream — or so it would seem.&lt;/p&gt;
+
+&lt;p&gt;I suspect that’s the idea that most people get when they hear about my work. It sounds like a dream: free of traditional constraints like office hours, dress code, commutes, etc. But it comes with its own dark side: the complete erosion of the boundaries between your professional and personal life.&lt;/p&gt;
+
+&lt;p&gt;For nearly two years, I’ve worked almost around the clock. I work on evenings, during the weekends, and while on “vacation” with my family. Undoubtedly, this “strong work ethic” has helped fuel my business’s growth over that period from a struggling freelancer to a fast-growing digital agency, but that growth has come with a great cost. I’ve missed countless moments — with family, friends, and even alone with my thoughts — that I’ll never get back. And lately, I’ve started to feel the cumulative exhaustion of those nights and weekends mounting.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;As the CEO, it’s my responsibility to set the tone for our work culture.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I want &lt;a href=&quot;http://the.beag.co&quot;&gt;my company&lt;/a&gt; to be the best in the business at what we do — but not at the expense of the health and well being of my employees. I want them to proud of the work that we do, I want their friends and families to feel valued, and I want them to love coming to work at a company that values and respects them. And none of those things will happen if I’m setting an always-on, workaholic tone as the CEO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clearly, it’s time for a change.&lt;/strong&gt; But how do you create a healthy work culture within a digital agency whose primary clients work in the 24/7 world of political campaigning?&lt;/p&gt;
+
+&lt;h2&gt;It’s important to be honest about the fear&lt;/h2&gt;
+
+&lt;p&gt;I suspect I’m hardly alone in feeling this way. It feels like everyone I talk to these days is working harder for longer each day, and taking less and less time off each year. We in the creative industry have — at least theoretically — more freedom and flexibility than any generation in modern American history, so why are we working ourselves to death?&lt;/p&gt;
+
+&lt;p&gt;The truth is that we are all afraid.&lt;/p&gt;
+
+&lt;p&gt;Employees (often justifiably) fear that if they don’t put in those extra hours on the evenings or weekends, their bosses will fire them and find someone who will. Employers fear that if put in fewer hours, or limit their availability, that they’ll lose business to competitors who’re “working harder.” Both are paralyzed by the competition in very global marketplace that makes modern workplace flexibility possible.&lt;/p&gt;
+
+&lt;p&gt;I’m certainly afraid: it’s what’s driven the aggressive pace of my work over the past two years. I work in a business where my clients are often on call 24/7 (political campaigns are unforgiving), and I worry that if I’m not equally available I’ll lose clients to agencies that are. Add to that that I’ve been chronically understaffed as I attempt to grow my business without outside funding, and there seems to be no other way to meet clients’ deadlines than to work insane hours. But of course, that’s only how it seems. It’s not true.&lt;/p&gt;
+
+&lt;p&gt;Even with political campaigns and advocacy organizations, the vast majority of the work can and should be planned in advance. With proper planning and time management, deadlines can be met without working around the clock. If you’re finding that you’re always over-capacity, that’s a good sign that you ought to be hiring. And if you can’t afford to hire, even when you’re beyond capacity, that’s a sign that you’re not charging enough.&lt;/p&gt;
+
+&lt;h2&gt;Looking to others for best practices&lt;/h2&gt;
+
+&lt;p&gt;So having said all that, what would it look like to restore a healthy work culture in a digital agency setting. The truth is: I’m not sure. But I’m trying to figure it out.&lt;/p&gt;
+
+&lt;p&gt;For now, I’m looking to others for best practices, new approaches, and philosophical guideposts to help light the way forward. Here are a few that strike a chord with me.&lt;/p&gt;
+
+&lt;h3&gt;Treehouse and the 32-hour work week&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://teamtreehouse.com/&quot;&gt;Treehouse&lt;/a&gt;, an online school for taking adult students from zero to job-ready in as little as six months, has become a sort of poster-child for the 32-hour work week. That’s right: the folks at Treehouse work 8 hours per day, four days per week, and in that time they develop one of the world’s leading online learning platform.&lt;/p&gt;
+
+&lt;p&gt;In the video below, their CEO — Ryan Carson — explains why they took this approach. The TL;DR version is that he realized that he wanted to work to live, rather than live to work, and that lost time is never found again.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;iframe width=&quot;700&quot; height=&quot;393&quot; src=&quot;https://www.youtube.com/embed/ztoHewIu2DU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;figcaption&gt;
+&lt;p&gt;Ryan Carson, CEO of Treehouse, has been a vocal proponent of the 32-hour work week.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The older my children get &lt;em&gt;(they’re 5, 3, and 2 years old)&lt;/em&gt;, the more heavily this truth weighs on me. They’ll only be kids once, and I’m missing it by working through the weekends and never taking time off. I don’t want that for myself, and I don’t want it for my employees, either.&lt;/p&gt;
+
+&lt;p&gt;Moreover, I’ve often felt the hard truth that a two-day weekend really isn’t enough. By the time you’ve taken care of the things you have to do — like cleaning the house, running errands, etc. — there’s hardly any time left to spend with the people you love. Just as you start to get into the groove of the weekend, it’s over.&lt;/p&gt;
+
+&lt;p&gt;But can a client services business operate on a four-day work week? I think so — with a caveat: sometimes there are genuine client emergencies that need fixing, and someone needs to be on hand to address them during the off days. These are the same sorts of emergencies that you’d currently need to wake up at 2am to address, and ought to be treated as such. Important is not the same as urgent, and to maintain a healthy work culture you need to be able to differentiate between the two.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;(A note about hours per day: I would challenge the notion that you get more done in a 10-hour or 12-hour hour day than you can in an 8-hour day. There’s a wealth of data that shows longer hours actually hurts productivity, and I want that reality to be a core part of my company’s culture.)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Basecamp and the idea that “Work Can Wait”&lt;/h3&gt;
+
+&lt;p&gt;Yesterday, Jason Fried — CEO of &lt;a href=&quot;http://basecamp.com/&quot;&gt;Basecamp&lt;/a&gt;, one of the world’s most popular project management platforms — wrote an article about a fundamental pillar of their new product’s design: &lt;a href=&quot;https://medium.com/woah-basecamp-3/basecamp-3-work-can-wait-4adfb285c84b&quot;&gt;work can wait&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As Jason explains it:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you’ve used a modern chat, collaboration, or messaging app, you’ve probably noticed that there’s a growing expectation of being available all the time. Someone at work hits you up on a Saturday, you get the notification, and what are you supposed to do? You could ignore them, but what’s the expectation? The expectation is “if you’re reachable, you should reply.” And if you don’t reply, you’ll likely notice another message from the same tool or a tool switch to try to reach you another way. And then the pressure really mounts to reply. On a Saturday. Or at 9pm on a Wednesday. Or some other time when it’s life time, not work time.&lt;/p&gt;
+
+&lt;p&gt;…&lt;/p&gt;
+
+&lt;p&gt;We believe Work Can Wait is an important notion. 9pm on Friday night is not work time. 6am on Wednesday morning is not work time. It may be for you, but it’s not for me. And I don’t want it to be work time for my employees either.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;See, the next version of Basecamp will automatically snooze (defer) notifications when you’re off work. That way you can focus on the moment you’re in, rather than constantly being interrupted by your phone buzzing to tell you about a comment your coworker just left. &lt;em&gt;(This is particularly useful when working across multiple time zones, or with clients on different work schedules than you.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;And while I love the idea of incorporating this approach into the apps and services we use, I think it’s equally important to make it a core part of my company’s work culture.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;When you’re off work for the evening or weekend, you shouldn’t be expected to respond to messages. If you are, then you’re not really off — are you?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Again, sometimes emergencies do come up, and we’ll need to have a process for handling that. But by and large &lt;strong&gt;remote working shouldn’t need to mean always working.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;The way forward&lt;/h2&gt;
+
+&lt;p&gt;Approaching work this way will be a big shift for me (personally) and fairly unorthodox in my field, but I think it’s important if my business is going to have long-term health and sustainability. I know that I can’t continue working 60–80 hour weeks indefinitely (who could?!), and I want to be in this for the long-haul.&lt;/p&gt;
+
+&lt;p&gt;The biggest challenge in this process will be adjusting expectations: my expectations for myself, for my employees, and my clients’ expectations of me. We’ll continue to do top-flight, industry leading work — but with discipline &amp;amp; planning we’ll do it in a way that allows us to be people, as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you’ve worked through these challenges yourself — or if you have any thoughts about it all — please share your thoughts either by responding to this article on Medium or emailing me at &lt;a href=&quot;mailto:ian@beag.co&quot;&gt;ian@beag.co&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>You (still) need to own your own digital + field infrastructure</title>
+      <link>http://ianpatrickhin.es/wrote/you-still-need-to-own-your-own-digital-field-infrastructure</link>
+      <pubDate>Mon, 03 Aug 2015 21:30:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/you-still-need-to-own-your-own-digital-field-infrastructure</guid>
+      <description>&lt;p&gt;Last month, the NRSC came out in favor of campaigns spending at least 30% of their budgets on digital (&lt;a href=&quot;http://www.nationaljournal.com/rob-portman-2016-senate-race-digital-ads-20150723&quot;&gt;Source&lt;/a&gt;). Independent firms like Targeted Victory are making programmatic digital advertising more accessible with self-serve tools like &lt;a href=&quot;http://www.targetedengagement.com/&quot;&gt;Targeted Engagement&lt;/a&gt;. And today, &lt;a href=&quot;https://gop.com/rnc-launches-data-center-2016/&quot;&gt;the RNC announced its new and improved Data Center&lt;/a&gt; for 2016, giving candidates and committees across the country unprecedented access to data that’ll help them win in November. And that doesn’t include all the exciting work being done by &lt;a href=&quot;http://nationbuilder.com/&quot;&gt;NationBuilder&lt;/a&gt;, &lt;a href=&quot;http://i-360.com/&quot;&gt;i360&lt;/a&gt;, &lt;a href=&quot;https://widgetmakr.com/&quot;&gt;WidgetMakr&lt;/a&gt;, and other countless other third-party apps and services.&lt;/p&gt;
+
+&lt;p&gt;After nearly a decade behind the digital + field “curve,” our party is finally showing signs of leadership in the space. This is an incredibly exciting time to be a Republican.&lt;/p&gt;
+
+&lt;p&gt;But with digital playing an increasingly important — some may even say central — role in campaigns, and with so many apps, services, and data sources emerging in the market, it can feel overwhelming trying to figure out what you need and what you don’t. That said, &lt;strong&gt;&lt;em&gt;there are three things every organization ought to do to get the most out of their digital infrastructure.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;1. Start by finding a good partner&lt;/h2&gt;
+
+&lt;p&gt;If you’re a campaign, committee, or advocacy organization and you’re looking to start making a serious commitment to digital + field, the first thing you ought to do is find a strong partner to help you through the process. It doesn’t matter whether this is an outside consultant or an internal hire, but it ought to be someone who has their sea legs under them and has been through this before.&lt;/p&gt;
+
+&lt;p&gt;Digital ≠ social media; you’re going to want someone who’s comfortable wading through data, who understands the software systems and how they integrate, who’s a competent designer &amp;amp; web developer, and who (preferably) has some field experience. Sound like a lot? That’s because this “someone” is likely going to be a team of people for you, especially if you’re working at the congressional level or higher.&lt;/p&gt;
+
+&lt;h2&gt;2. Build your foundational digital infrastructure&lt;/h2&gt;
+
+&lt;p&gt;Once you’ve identified an expert partner to help lead your digital effort, it’s time to lay the foundation. On what platform will you host your website? How will you process donations? Send email blasts? Track engagement data from your website, emails, donation pages, etc.? Filter and segment your voter/volunteer/donor/email/social data? Etc.&lt;/p&gt;
+
+&lt;p&gt;Put more simply: before you do any fancy stuff, you need to build out the systems and workflows to allow you to handle the basic, everyday stuff. For each component of this basic infrastructure (email, database, website, donations) there are a number of great options, but there are few that effectively integrate them all into an integrated system. One of the best is NationBuilder, a nonpartisan software platform which has quickly become the go-to default for forward-thinking campaigns and organizations around the world.&lt;/p&gt;
+
+&lt;p&gt;State Republican Parties in key states purple states like &lt;a href=&quot;http://www.florida.gop/&quot;&gt;Florida&lt;/a&gt; and &lt;a href=&quot;http://www.massgop.com/&quot;&gt;Massachusetts&lt;/a&gt; are taking the lead and using NationBuilder to build the state-of-the-art digital + field infrastructure that’ll allow them to run some of the most advanced campaigns the party has ever seen. They’re joined by other leading Republican campaigns, like &lt;a href=&quot;http://t.co/8WMUukQHNn&quot;&gt;Senate Majority Leader Mitch McConnell&lt;/a&gt;’s successful 2014 re-election campaign, &lt;a href=&quot;http://www.patmccrory.com/&quot;&gt;North Carolina Governor Pat McCrory’s re-election campaign&lt;/a&gt;, and &lt;a href=&quot;http://www.billbryantforgovernor.com/&quot;&gt;Bill Bryant’s campaign for Governor of Washington State&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But whether you use NationBuilder or some other platform, your foundational digital infrastructure ought to serve as the center — or “hub” — of your entire digital operation. At any given moment, the data in this core system ought to be the canonical “truth” about your campaign, its supporters, etc., and &lt;strong&gt;&lt;em&gt;by owning this system internally you always know that it’s tailored to service you, and not someone else.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;3. Connect to and integrate with third party data sources and tools&lt;/h2&gt;
+
+&lt;p&gt;Now that you’ve built out your campaign’s internal digital infrastructure, you’re ready to start connecting with outside data sources and tools. These tools should “sync” with your internal systems using tight integrations, allowing you to use third-party tools while remaining confident that your internal data is always accurate and up to date.&lt;/p&gt;
+
+&lt;p&gt;What sorts of systems might you be integrating with? Several:&lt;/p&gt;
+
+&lt;h3&gt;Data Sources&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The RNC’s 2016 Data Center&lt;/li&gt;
+&lt;li&gt;i-360’s Database&lt;/li&gt;
+&lt;li&gt;NationBuilder’s Election Center&lt;/li&gt;
+&lt;li&gt;Facebook Page data&lt;/li&gt;
+&lt;li&gt;Twitter interactional data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Canvassing / Phone Banking Apps&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Northstar Campaigns&lt;/li&gt;
+&lt;li&gt;Ecanvasser&lt;/li&gt;
+&lt;li&gt;CallHub&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Fundraising&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NationBuilder&lt;/li&gt;
+&lt;li&gt;WidgetMakr&lt;/li&gt;
+&lt;li&gt;Targeted Victory&lt;/li&gt;
+&lt;li&gt;Anedot&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;(Note: If you’re keeping these systems in sync by importing and exporting spreadsheets between them, you ought to reconsider what you’re doing. That sort of process is likely to — at best — cause delays and — at worst — data corruption.)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;The Bottom Line&lt;/h2&gt;
+
+&lt;p&gt;Our party has never been in a strong position digitally than we are in today. We have a wealth of tools, resources, and talent that — if we use it properly — will lead us to victory in November.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NationBuilder-first design</title>
+      <link>http://ianpatrickhin.es/wrote/nationbuilder-first-design</link>
+      <pubDate>Sun, 19 Jul 2015 21:28:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/nationbuilder-first-design</guid>
+      <description>&lt;p&gt;NationBuilder is somewhat unique as a content management system — because it isn’t one, really. It’s far more than that. &lt;em&gt;NationBuilder is a &lt;a href=&quot;http://nationbuilder.com/what_is_a_community_organizing_system&quot;&gt;community organizing system&lt;/a&gt;&lt;/em&gt;, and once you internalize that it transforms everything about the way that you approach using the software.&lt;/p&gt;
+
+&lt;p&gt;When I talk with prospective clients about working with them to design a custom NationBuilder website theme, one of the things I emphasize is the importance of what I call “NationBuilder-first design.” The idea is to design a theme that takes advantage of as much of NationBuilder’s native functionality as possible — &lt;em&gt;to build a NationBuilder theme, not a website that runs on NationBuilder.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This is especially important if you’re new to the platform because — at least initially — your ability to imagine your site’s community organizing potential is limited by your prior experience with less powerful platforms. It’s not your fault; you’ve been trained to see your website as a tool to do a limited number of things: tell your story; collect email signups; receive donations; etc. But it can do so much more.&lt;/p&gt;
+
+&lt;p&gt;In fact, it’s probably precisely because of that &lt;a href=&quot;http://nationbuilder.com/feature_index&quot;&gt;added functionality&lt;/a&gt; that you were drawn to NationBuilder. If leveraged properly, features like &lt;a href=&quot;http://nationbuilder.com/referrals&quot;&gt;referral tracking&lt;/a&gt;, &lt;a href=&quot;http://nationbuilder.com/public_profiles&quot;&gt;public profiles&lt;/a&gt;, and &lt;a href=&quot;http://nationbuilder.com/leaderboards&quot;&gt;leaderboards&lt;/a&gt; can be incredibly powerful for organizing and growing your community of supporters. You should insist that they be an integral part your NationBuilder website.&lt;/p&gt;
+
+&lt;p&gt;A lot of folks will try to convince you to let them design a website for you, then shoehorn NationBuilder into it with a few signup forms here and there. Don’t buy it. If you do, you’ll be leaving a lot of tools on the table — tools that you’re already paying for, I might add — that can help you successfully grow and organize your community. Instead, &lt;em&gt;insist on an authentic, NationBuilder-first theme.&lt;/em&gt; It may seem like more work up front, but you’ll be happier (and more successful) in the end.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What is NationBuilder, anyway?</title>
+      <link>http://ianpatrickhin.es/wrote/what-is-nationbuilder-anyway</link>
+      <pubDate>Sat, 18 Jul 2015 21:26:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/what-is-nationbuilder-anyway</guid>
+      <description>&lt;p&gt;At first, it seems like a silly question — &lt;em&gt;What is &lt;a href=&quot;http://nationbuilder.com/?recruiter_id=219736&quot;&gt;NationBuilder&lt;/a&gt;?&lt;/em&gt; — because the answer is obvious, isn’t it? NationBuilder is a content management system. Or maybe it’s a voter database. Or a field organizing tool? A nonprofit CRM? A bulk email service?&lt;/p&gt;
+
+&lt;p&gt;The company bills itself as a “community organizing system” — a cohesive set of tools to help organizations coordinate their people, web pages, finances, and online communications in pursuit of a goal. But that’s rather like describing a hammer, screwdriver, tape measure, and level as a “household repair system.” It feels… off.&lt;/p&gt;
+
+&lt;p&gt;The truth is that NationBuilder is all of those things, and more. At its core, I believe that NationBuilder is an approach to community organizing — to &lt;em&gt;leadership&lt;/em&gt; — that’s centered on listening, feedback, actionable data, and individual empowerment. The design of the product and the company’s culture are both a direct result of this philosophy, and it underpins everything about the NationBuilder experience.&lt;/p&gt;
+
+&lt;p&gt;NationBuilder’s “community organizing system” is not just the product itself: it’s the pairing of the product with the philosophy. It’s what I call the “NationBuilder way” of community organizing, and it’s incredibly effective.&lt;/p&gt;
+
+&lt;p&gt;In my experience the organizations who get the most out of NationBuilder’s tools are the ones who learn this philosophy and embrace it at a core level. They don’t just ask “how does this feature work,” but instead inquire about the thinking behind the feature and how it is intended to be used. Why should I use follow ups? Why auto-assign point people? Why use a NationBuilder-compliant donation processor?&lt;/p&gt;
+
+&lt;p&gt;If you truly want to understand what NationBuilder is — &lt;em&gt;really&lt;/em&gt; — that’s where to begin: with the philosophy. Once you understand that, the product knowledge will come naturally.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Five Albums for St. Patrick’s Day</title>
+      <link>http://ianpatrickhin.es/wrote/five-albums-for-st-patricks-day</link>
+      <pubDate>Tue, 17 Mar 2015 10:03:00 -0400</pubDate>
+      <author>Ian Hines</author>
+      <guid>http://ianpatrickhin.es/wrote/five-albums-for-st-patricks-day</guid>
+      <description>&lt;p&gt;St. Patrick’s Day is a special day for me. I’m not much for the “drink until you collapse” scene; no, for me St. Patrick’s Day is about remembering my family’s Irish ancestry through prayer, food, and music. And &amp;ndash; oh &amp;ndash; the music.&lt;/p&gt;
+
+&lt;p&gt;At it’s best, Irish music is about storytelling. Rebel songs. Immigrant songs. Party songs. Laments. In my experience there’s no better window into Irish history than through its music. &lt;/p&gt;
+
+&lt;p&gt;So in honor of St. Patrick’s Day, I’d like to share with you five of my favorite Irish music albums. They’re each great in their own way, but all should make their way into your playlist today.&lt;/p&gt;
+
+&lt;h2&gt;“If I Should Fall From Grace With God” by The Pogues&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://play.google.com/music/m/Biew2xobonbgbo2gj7leaja4b3q&quot;&gt;Google Play&lt;/a&gt; | &lt;a href=&quot;http://www.rdio.com/artist/The_Pogues/album/If_I_Should_Fall_From_Grace_With_God_(Expanded)_(US_Version)/&quot;&gt;Rdio&lt;/a&gt; | &lt;a href=&quot;https://play.spotify.com/album/4V92Puney9WxGPecKtLG4L&quot;&gt;Spotify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The Pogues are well known for their characteristic hybrid of traditional folk music and modern punk, and this is probably their best album. It’s probably what you imagine in your head when you think of pub music on St. Patrick’s Day. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Track:&lt;/strong&gt; Fairytale Of New York&lt;/p&gt;
+
+&lt;h2&gt;“The Essential Chieftains” by The Chieftains&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://play.google.com/music/m/Byfkl3i2j3q25klaja2eay2a4cy&quot;&gt;Google Play&lt;/a&gt; | &lt;a href=&quot;http://www.rdio.com/artist/The_Chieftains/album/The_Essential_Chieftains_1/&quot;&gt;Rdio&lt;/a&gt; | &lt;a href=&quot;https://play.spotify.com/album/11lmhdLYmkVFr5oefCEmJL&quot;&gt;Spotify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I don’t think there’s any finer example of traditional Irish music than The Chieftains, and this is a collection of their best stuff. Think of a &lt;a href=&quot;https://www.google.com/search?q=define%20ceilidh&quot;&gt;ceilidh&lt;/a&gt; in the west of Ireland, and you’ve got the idea.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Track:&lt;/strong&gt; O’Sullivan’s March&lt;/p&gt;
+
+&lt;h2&gt;“The Best Of” by The Clancy Brothers &amp;amp; Tommy Makem&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://play.google.com/music/m/Bo7ljvyhj6g5mzcfcbjdk53npk4&quot;&gt;Google Play&lt;/a&gt; | &lt;a href=&quot;http://www.rdio.com/artist/The_Clancy_Brothers__Tommy_Makem/album/The_Best_Of_(Digitally_Remastered)/&quot;&gt;Rdio&lt;/a&gt; | &lt;a href=&quot;https://play.spotify.com/album/3WqwhtMSBh2icCiVXO9Mia&quot;&gt;Spotify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/The_Clancy_Brothers&quot;&gt;The Clancy Brothers&lt;/a&gt; are widely credited with popularizing traditional Irish music and Irish folk music in the United States, and they certainly played that role for me. This is an album of Irish folk songs &amp;ndash; the sort you might hear in &lt;a href=&quot;http://en.wikipedia.org/wiki/Temple_Bar,_Dublin&quot;&gt;Temple Bar, Dublin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Track:&lt;/strong&gt; Whack Fol The Diddle&lt;/p&gt;
+
+&lt;h2&gt;“Far From The Shamrock Shore” by Mick Moloney&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://play.google.com/music/m/Bfwg7p6o6fqualtw76yror2csea&quot;&gt;Google Play&lt;/a&gt; | &lt;a href=&quot;http://www.rdio.com/artist/Mick_Moloney/album/Far_From_The_Shamrock_Shore/&quot;&gt;Rdio&lt;/a&gt; | &lt;a href=&quot;https://play.spotify.com/album/1WfAWGOHsjUtx8jq0y95IU&quot;&gt;Spotify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For Irish Americans, this album is particularly fantastic. Mick Moloney &amp;ndash; a traditional Irish musician born in County Limerick &amp;ndash; moved to Philadelphia after playing a central role in Dublin’s folks scene in the 1960s. In this album, he digs into the Irish American immigrant experience with a set of songs all derived directly from that history.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Track:&lt;/strong&gt; No Irish Need Apply&lt;/p&gt;
+
+&lt;h2&gt;“The High Kings” by The High Kings&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://play.google.com/music/m/B24sx25f4nbk2yvlrcgngp6qys4&quot;&gt;Google Play&lt;/a&gt; | &lt;a href=&quot;http://www.rdio.com/artist/The_High_Kings/album/The_High_Kings/&quot;&gt;Rdio&lt;/a&gt; | &lt;a href=&quot;https://play.spotify.com/album/4EDaQ3qQ8vglXgSi5sQm2A&quot;&gt;Spotify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The most modern of all the albums on this list, The High Kings also deliver the most contemporary sound. They play traditional Irish songs with a modern, upbeat twist. It’s the sort of contemporary Irish folk music you can expect to hear on stage at your local Irish festival.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key Track:&lt;/strong&gt; Marie’s Wedding&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

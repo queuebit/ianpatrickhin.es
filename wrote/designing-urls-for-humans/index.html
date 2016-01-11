@@ -1,0 +1,143 @@
+
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>“Designing URLs for Humans” by Ian Patrick Hines</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6857554/6536752/css/fonts.css" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/img/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/img/favicons/manifest.json">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#bdbdbd">
+</head>
+<body>
+  <div id="left-border"></div>
+  <div id="right-border"></div>
+  <div id="top-border"></div>
+  <div id="bottom-border"></div>
+  <main id="designing-urls-for-humans">
+    <header>
+      <nav id="breadcrumbs">
+        <a href="/">
+          <img src="http://graph.facebook.com/53000463/picture?width=150&height=150" alt="Photo: Ian Patrick Hines" class="profile-photo">
+        </a>
+        
+          <a href="/">ianpatrickhin.es</a> / <a href="/wrote">wrote</a> / 
+        
+      </nav>
+      <h1>
+        Designing URLs for Humans
+      </h1>
+    </header>
+
+    
+<article class="block">
+  <p>Yesterday, Kyle Neath published a wonderfully thoughtful article on <a href="http://warpspire.com/posts/url-design/">URL Design</a>, in which he argued that the time had finally come to do away with SEO-focused URL structures and start using elegant URLs that are designed for humans. He is absolutely right, and I&rsquo;ve adapted my URLs accordingly.</p>
+
+<p>I&rsquo;ll let Kyle&rsquo;s words stand for themselves as to why this is important&mdash;for myself I&rsquo;ll just say I find it fun. Like my move from ianhines.com to ianhin.es, this is an exercise in pure nerdery. And I&rsquo;m okay with that.</p>
+
+<p>So what, specifically, is different? <em>Each URL string on this site will now form a complete sentence</em>. This entry, for example, can be found at <em>http://ianhin.es/wrote-about/designing-urls-for-humans</em>. You can tell what this post is about immediately upon seeing the URL. It&rsquo;s logical. It&rsquo;s legible. It&rsquo;s designed for humans.</p>
+
+<p><img src="http://cl.ly/2c3p1x2e430p0O2z173G/Screen_shot_2010-12-29_at_9.38.49_PM.png" alt="A Human Readable URL." /></p>
+
+<p><em>Previously I had used the /year/month/slug pattern typical of many WordPress blogs</em>, i.e. <em>http://ianhin.es/2010/12/designing-urls-for-humans</em>. This is the same pattern used by the likes of Shawn Blanc, Ben Brooks, and, John Gruber (although Gruber uses Movable Type, not WordPress).</p>
+
+<p>But, if you think about it, these URLs really beg the questions: why do I care what year and month the entry was published in? Does it really matter? The answer is no, it doesn&rsquo;t. At least not to me.</p>
+
+<p>Sure, these URLs look normal to us. They&rsquo;re what we expect&mdash;what we&rsquo;re accustomed to. But there&rsquo;s really no logical reason why they need to be this way. They don&rsquo;t add any particular value to the usability or personality of the website, and I see no compelling reason to stand on tradition for tradition&rsquo;s sake. So here&rsquo;s to personal website&rsquo;s being sandboxes&mdash;places for experiment.</p>
+
+<h2>How I Did It</h2>
+
+<p>WordPress gives you rather wide latitude in customizing your permalink patterns. In your WordPress Dashboard, under Settings: Permalink, you&rsquo;ll see that there are five options:</p>
+
+<p><img src="http://cl.ly/3u0b47063Q450t2e2h0a/Screen_shot_2010-12-29_at_8.58.29_PM.png" alt="WordPress Permalink Settings" /></p>
+
+<p>The most popular setting, and the one previously used on this site, is the third: Month and Name. This provides some context about the entry chronologically, and a glimpse into its content by way of the post name, or &ldquo;slug.&rdquo;</p>
+
+<p>But for my site, which is more of a tumblelog than a traditional blog, I wanted the URLs to reflect the varying formats of the entries: articles, links, images, videos, etc. So instead of going with &ldquo;Month and Name,&rdquo; I went instead with &ldquo;Category and Name.&rdquo;</p>
+
+<p>Initially, &ldquo;Category and Name&rdquo; generated URLs along the lines of <em>http://ianhin.es/articles/designing-urls-for-humans</em>&mdash;closer to my goal, but still not really a readable sentence. The middle portion, &ldquo;articles,&rdquo; is the &ldquo;category slug,&rdquo; or URL ID of the Articles category. To turn the URL into a sentence, that would have to be changed, which can be done in the WordPress Dashboard&rsquo;s Posts: Categories menu:</p>
+
+<p><img src="http://cl.ly/3f1O013h2L3a233a0Y1p/Screen_shot_2010-12-29_at_9.15.57_PM.png" alt="Posts: Categories" /></p>
+
+<p>I manually edited each category&rsquo;s slug so that, instead of merely restating the category, it used a verb that described what the post did. The result was that &ldquo;articles&rdquo; became &ldquo;wrote-about,&rdquo; &ldquo;links&rdquo; became &ldquo;linked-to,&rdquo; &ldquo;quotes&rdquo; became &ldquo;quoted,&rdquo; etc.</p>
+
+<h2>Subject-Verb-Object</h2>
+
+<p>The resulting URL string, which&mdash;as we saw on the Settings: Permalinks page&mdash;renders as root/category/slug, now also reads subject/verb/object, or in simple sentence structure.</p>
+
+<p><code>Ian Hines / wrote about / designing URLs for humans.</code></p>
+
+<p><em>http://ianhin.es/wrote-about/designing-urls-for-humans</em></p>
+
+<p>And there you go. It&rsquo;s just that easy. URLs that are logical, legible, and designed for humans.</p>
+
+<p>Note: All existing permalinks will continue to function normally, so no changes to referenced links or bookmarks are necessary. URLs for older entries may not render as perfectly readable sentences, as post slugs were not drafted with this end in mind.</p>
+
+
+  <aside>
+    <time datetime="2010-12-30 H%:29">Published on December 30, 2010</time>
+  </aside>
+</article>
+
+
+    
+    <footer>
+      <nav id="nav">
+        <ul id="menu" class="menu">
+  <li>
+    <a href="/wrote">Writings</a>
+  </li>
+  <li>
+    <a href="http://the.beag.co" target="_blank">Work</a>
+  </li>
+  <li>
+    <a href="/about">About</a>
+  </li>
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+      </nav>
+    </footer>
+    
+
+  </main>
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '528a3e59f5a1f52c0f000066');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>

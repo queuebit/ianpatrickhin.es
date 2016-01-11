@@ -1,0 +1,407 @@
+
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>“From Tumblr to WordPress: The Missing Guide” by Ian Patrick Hines</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6857554/6536752/css/fonts.css" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/img/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/img/favicons/manifest.json">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#bdbdbd">
+</head>
+<body>
+  <div id="left-border"></div>
+  <div id="right-border"></div>
+  <div id="top-border"></div>
+  <div id="bottom-border"></div>
+  <main id="from-tumblr-to-wordpress-the-missing-guide">
+    <header>
+      <nav id="breadcrumbs">
+        <a href="/">
+          <img src="http://graph.facebook.com/53000463/picture?width=150&height=150" alt="Photo: Ian Patrick Hines" class="profile-photo">
+        </a>
+        
+          <a href="/">ianpatrickhin.es</a> / <a href="/wrote">wrote</a> / 
+        
+      </nav>
+      <h1>
+        From Tumblr to WordPress: The Missing Guide
+      </h1>
+    </header>
+
+    
+<article class="block">
+  <p>With the recent Tumblr downtime incident fresh in everyone&rsquo;s minds a lot of folks have, understandably, been considering moving from Tumblr to WordPress. I&rsquo;ve made that journey twice and I can tell you that it is possible to move your site from Tumblr to WordPress without any significant front-end changes.</p>
+
+<p>Let me show you how.</p>
+
+<h2>Getting Started: What You&rsquo;ll Need</h2>
+
+<p>Before we get started, lets make sure we have all the required ingredients.</p>
+
+<p>You&rsquo;ll need:</p>
+
+<ul>
+<li>a Tumblr blog;</li>
+<li>a domain name and web hosting;</li>
+<li>the latest version of WordPress;</li>
+<li>a spreadsheet;</li>
+<li>an HTML editor;</li>
+<li>a CSS editor;</li>
+<li>an FTP client;</li>
+<li>patience; and</li>
+<li>time.</li>
+</ul>
+
+<p>Let&rsquo;s look at each of these a little more closely.</p>
+
+<h3>A Tumblr Blog</h3>
+
+<p>This seems self explanatory, but I included it for the sake of being thorough. What is, perhaps, also worth noting is that you&rsquo;ll need consistent and frequent access to the Dashboard. Best of luck there.</p>
+
+<h3>A Domain Name and Web Hosting</h3>
+
+<p>I strongly recommend hosting your website with (mt) Media Temple. Their hosting plans are reliable, scalable, and each account comes with a free web domain registration. The majority of websites would be well served by their (gs) Grid-Server hosting plan, but if the $20/month price tag seems a bit steep you may want to consider gifting yourself a year of the (gs) Grid-Server Lite plan.</p>
+
+<p>That said, Media Temple is not a necessity here. Any host that is <a title="PHP / MySQL Web Hosting" href="http://wordpress.org/hosting/">compatible with WordPress</a> will do.</p>
+
+<h3>The Latest Version of WordPress</h3>
+
+<p>The latest version of WordPress can be found <a title="WordPress.org" href="http://wordpress.org/">here</a>. If you are hosting with Media Temple you should take advantage of their <a title="1-Click Installation" href="http://mediatemple.net/webhosting/gs/features/">1-Click Installation</a> feature.</p>
+
+<h3>A Spreadsheet</h3>
+
+<p>We&rsquo;ll be using this to track our old (Tumblr) URLs to our new (WordPress) URLs. Seriously. It&rsquo;s tedious, but the results are well worth it.</p>
+
+<p>Excel or Numbers will both work, but frankly I&rsquo;d recommend using Google Docs here. It&rsquo;s fast, it auto-saves, and it has all the necessary features.</p>
+
+<h3>An HTML Editor and a CSS Editor</h3>
+
+<p>It&rsquo;s likely that if you&rsquo;re reading this guide you already own these tools. But for those of you that don&rsquo;t, they&rsquo;ll be essentially when the time comes for building our WordPress theme. I highly recommend <a title="Coda by Panic" href="http://www.panic.com/coda/">Coda by Panic</a>.</p>
+
+<h3>A File Transfer Protocol (FTP) Client</h3>
+
+<p>Along the same lines as the HTML &amp; CSS Editors, you probably already have one of these. If not, I recommend <a title="Transmit by Panic" href="http://www.panic.com/transmit/">Transmit by Panic</a>.</p>
+
+<h3>Patience &amp; Time</h3>
+
+<p>Make no mistake: this is a time consuming process. I believe whole heartedly that it&rsquo;s worth the investment of time and energy, but it&rsquo;s most certainly not a quick fix. Be prepared to settle in for a few days of serious work.</p>
+
+<h2>Step One: Install WordPress</h2>
+
+<p>Install WordPress on your newly purchased domain. Directions can be found <a title="Installing WordPress" href="http://codex.wordpress.org/Installing_WordPress">here</a>.</p>
+
+<h2>Step Two: Create Categories</h2>
+
+<p>Before we even start dealing with moving posts from Tumblr, we need to get WordPress configured properly. We&rsquo;ll begin by replicating Tumblr&rsquo;s post types using WordPress&rsquo;s Categories.</p>
+
+<p>You&rsquo;ll want to create seven categories. Only seven. They are the seven post types offered by Tumblr:</p>
+
+<ul>
+<li>Text</li>
+<li>Photo</li>
+<li>Quote</li>
+<li>Link</li>
+<li>Chat</li>
+<li>Audio</li>
+<li>Video</li>
+</ul>
+
+<p>We&rsquo;ll be using these categories to distinguish different post types in our theme, so it&rsquo;s important to be sure to write the &ldquo;slug&rdquo; for each category with those exact title (but in lower case). This will allow us to render them distinctly from one another, creating that &ldquo;mixed format&rdquo; feel for which Tumblr is so well known.</p>
+
+<h2>Step Three: Install the DF-Style Linked List Plugin for WordPress</h2>
+
+<p>This plugin, which can be found here, allows you to create Daring Fireball&mdash;or Tumblr&mdash;style link posts. This is how we achieve the functionality of having the entry&rsquo;s title link to the target URL, both on the blog and in the RSS feed.</p>
+
+<p>Be sure to read the directions for this plugin and follow them very closely. It does all the heavy lifting for you.</p>
+
+<h2>Step Four: Create Custom Fields</h2>
+
+<p>In order to input the format-specific content in a way that&rsquo;s forward compatible we&rsquo;ll be using Custom Fields. Custom Fields allow us to input specific information in excess of the &ldquo;Body&rdquo; of the post, which we can then integrate into our theme creatively.</p>
+
+<p>We&rsquo;ll need five custom fields:</p>
+
+<ul>
+<li>photo</li>
+<li>quote</li>
+<li>link_list_url (See Step Three above)</li>
+<li>audio</li>
+<li>video</li>
+</ul>
+
+<p>To add a custom field, follow these easy steps:</p>
+
+<ol>
+<li>Open the &ldquo;Add New Post&rdquo; page in your WordPress Dashboard.</li>
+<li>Scroll down the page to the Custom Fields menu.</li>
+<li>Under the &ldquo;Add New Custom Field&rdquo; menu, click &ldquo;Enter New.&rdquo;</li>
+<li>Enter the name of the Custom Field (see above) in the lefthand box. Enter any value in the righthand box (it doesn&rsquo;t matter at this point).</li>
+<li>Click &ldquo;Add Custom Field.&rdquo;</li>
+</ol>
+
+<p>The values you assign these Custom Fields do not matter at this point: only the names, or &ldquo;keys.&rdquo;</p>
+
+<h2>Step Five: Import Tumblr Posts</h2>
+
+<p>Now we&rsquo;re ready to begin the process of moving your entries from Tumblr to WordPress. Fair warning: if you have a lot of content on Tumblr this may be a painfully long process, as Tumblr doesn&rsquo;t provide a mechanism for exporting your content in a WordPress compatible format. We&rsquo;ll be doing this manually, one post at a time.</p>
+
+<p>For the sake of my own sanity, I began this process with the most recent entry and worked my way backwards. You might choose to do the opposite. Whatever works for you.</p>
+
+<h3>Importing a Text Post</h3>
+
+<p>Text posts are the easiest to import. Here&rsquo;s how you do it:</p>
+
+<ol>
+<li>In Tumblr&rsquo;s Dashboard, click the &ldquo;edit&rdquo; link on the post you wish to import.</li>
+<li>In your WordPress Dashboard, click &ldquo;New Post&rdquo; in the top left corner.</li>
+<li>Copy the title and body of your post from Tumblr to the appropriate WordPress fields.</li>
+<li>Manually reset the publish date of the WordPress post to the Tumblr posts publish date by clicking &ldquo;Edit&rdquo; next to the words &ldquo;Publish Immediately.&rdquo;</li>
+<li>Select &ldquo;Text&rdquo; as the post&rsquo;s category (see Step One above). Do not select any other category. Each post can only have one category selected; if you&rsquo;d like to note the topic of the post please do so using WordPress&rsquo; tags.</li>
+<li>Click &ldquo;Publish.&rdquo;</li>
+</ol>
+
+<h3>Importing a Photo Post</h3>
+
+<p>With photos we&rsquo;ll begin using Custom Fields. Here&rsquo;s how you do it:</p>
+
+<ol><ol>
+<li>In Tumblr&rsquo;s Dashboard, click the &ldquo;edit&rdquo; link on the post you wish to import.</li>
+<li>In your WordPress Dashboard, click &ldquo;New Post&rdquo; in the top left corner.</li>
+<li>Copy the title of your post from Tumblr to the WordPress title field.</li>
+<li>Copy the caption of your post from Tumblr to WordPress body field.</li>
+<li>Open the entry in Safari or the browser of your choice. View the source.</li>
+<li>Highlight and copy the HTML for the photograph, including the link surrounding it (if applicable).</li>
+<li>In WordPress, create a custom photo field using the drop down &ldquo;Custom Fields&rdquo; selector (see Step Three above).</li>
+<li>In the &ldquo;value,&rdquo; or righthand, box of the photo field input the HTML you copied from the Tumblr entry&rsquo;s source code in the following format.</li>
+</ol></ol>
+<p><code>&lt;a href="http://destination.link" title="The Photo Title"&gt;&lt;img src="http://image.source" alt="The Photo Title" /&gt;&lt;a&gt;</code></p>
+<ol>
+<li>Manually reset the publish date of the WordPress post to the Tumblr posts publish date by clicking &ldquo;Edit&rdquo; next to the words &ldquo;Publish Immediately.&rdquo;</li>
+<li>Select &ldquo;Photo&rdquo; as the post&rsquo;s category (see Step One). Do not select any other category. Each post can only have one category selected; if you&rsquo;d like to note the topic of the post please do so using WordPress&rsquo; tags.</li>
+<li>Click &ldquo;Publish.&rdquo;</li>
+</ol>
+
+<h3>Importing a Quote Post</h3>
+
+<ol>
+<li>In Tumblr&rsquo;s Dashboard, click the &ldquo;edit&rdquo; link on the post you wish to import.</li>
+<li>In your WordPress Dashboard, click &ldquo;New Post&rdquo; in the top left corner.</li>
+<li>Copy the title of your post from Tumblr to the appropriate WordPress field.</li>
+<li>Copy the caption of your post from Tumblr to WordPress body field.</li>
+<li>In WordPress, create a custom quote field using the drop down &ldquo;Custom Fields&rdquo; selector (see Step Three above).</li>
+<li>In the &ldquo;value,&rdquo; or righthand, box of the quote field input the quote from your Tumblr Dashboard.</li>
+<li>Manually reset the publish date of the WordPress post to the Tumblr posts publish date by clicking &ldquo;Edit&rdquo; next to the words &ldquo;Publish Immediately.&rdquo;</li>
+<li>Select &ldquo;Quote&rdquo; as the post&rsquo;s category (see Step One). Do not select any other category. Each post can only have one category selected; if you&rsquo;d like to note the topic of the post please do so using WordPress&rsquo; tags.</li>
+<li>Click &ldquo;Publish.&rdquo;</li>
+</ol>
+
+<h3>Importing a Link Post</h3>
+
+<ol>
+<li>In Tumblr&rsquo;s Dashboard, click the &ldquo;edit&rdquo; link on the post you wish to import.</li>
+<li>In your WordPress Dashboard, click &ldquo;New Post&rdquo; in the top left corner.</li>
+<li>Copy the title of your post from Tumblr to the WordPress title field.</li>
+<li>Copy the caption of your post from Tumblr to WordPress body field.</li>
+<li>In WordPress, create a custom link_list_item field using the drop down &ldquo;Custom Fields&rdquo; selector (see Step Three above).</li>
+<li>In the &ldquo;value,&rdquo; or righthand, box of the linked_list_item field input the destination URL of the link from the Tumblr Dashboard.</li>
+<li>Manually reset the publish date of the WordPress post to the Tumblr posts publish date by clicking &ldquo;Edit&rdquo; next to the words &ldquo;Publish Immediately.&rdquo;</li>
+<li>Select &ldquo;Link&rdquo; as the post&rsquo;s category (see Step One). Do not select any other category. Each post can only have one category selected; if you&rsquo;d like to note the topic of the post please do so using WordPress&rsquo; tags.</li>
+<li>Click &ldquo;Publish.&rdquo;</li>
+</ol>
+
+<h3>Importing a Video Post</h3>
+
+<ol>
+<li>In Tumblr&rsquo;s Dashboard, click the &ldquo;edit&rdquo; link on the post you wish to import.</li>
+<li>In your WordPress Dashboard, click &ldquo;New Post&rdquo; in the top left corner.</li>
+<li>Copy the title of your post from Tumblr to the WordPress title field.</li>
+<li>Copy the caption of your post from Tumblr to WordPress body field.</li>
+<li>Open the entry in Safari or the browser of your choice. View the source.</li>
+<li>Highlight and copy the HTML for the video.</li>
+<li>In WordPress, create a custom video field using the drop down &ldquo;Custom Fields&rdquo; selector (see Step Three above).</li>
+<li>In the &ldquo;value,&rdquo; or righthand, box of the photo field input the HTML you copied from the Tumblr entry&rsquo;s source code in the following format.</li>
+<li>Manually reset the publish date of the WordPress post to the Tumblr posts publish date by clicking &ldquo;Edit&rdquo; next to the words &ldquo;Publish Immediately.&rdquo;</li>
+<li>Select &ldquo;Video&rdquo; as the post&rsquo;s category (see Step One). Do not select any other category. Each post can only have one category selected; if you&rsquo;d like to note the topic of the post please do so using WordPress&rsquo; tags.</li>
+<li>Click &ldquo;Publish.&rdquo;</li>
+</ol>
+
+<p>Frankly, I don&rsquo;t use either the Audio or Chat post types, so I&rsquo;m not sure how I would import those sorts of posts. But I think at this point you have an idea of what my approach looks like, and you can likely come up with a like-minded solution.</p>
+
+<p><em>Note: It&rsquo;s a good idea to import a few posts&mdash;perhaps one of each post type&mdash;to WordPress before beginning Step 5. Doing so will ensure that you have accurate entries with which to test your theme.</em></p>
+
+<p>Be cautious, however, not to invest too much time importing posts before testing your theme, lest you need to change how you are inputting the content to suit your theme.</p>
+
+<h2>Step Six: Port the Tumblr Theme to WordPress</h2>
+
+<p>I&rsquo;m not going to spend too much time here explaining how to make a WordPress theme. There are many other great &ldquo;How-To&rdquo; sites on that topic to warrant the time. What I will explain is how I use <a title="Learn About 'The Loop'" href="http://codex.wordpress.org/The_Loop">The Loop</a> to format individual entries specific to their type.</p>
+
+<h3>Using The Loop</h3>
+
+<p>We&rsquo;ll begin The Loop like we would on any other WordPress blog:</p>
+
+<p><code>&lt;?php if (have_posts()) : ?&gt;</code></p>
+
+<p>&lt;?php query_posts(&lsquo;showposts=15&rsquo;); while (have_posts()) : the_post(); ?&gt;</p>
+
+<p>This essentially begins the loop and instructs WordPress to call for the most recent fifteen posts.</p>
+
+<p>We then begin the fun part. We&rsquo;re going to use if/else statements to specify different formats for posts depending on which category they belong to. This section of The Loop will look roughly like this:</p>
+
+<p><code>&lt;?php if (in_category('text')) : ?&gt;</code></p>
+
+<p>Formatting of text posts</p>
+
+<p>&lt;?php elseif (in_category(&lsquo;photo&rsquo;)) : ?&gt;</p>
+
+<p>Formatting of photo posts</p>
+
+<p>&lt;?php elseif (in_category(&lsquo;quote&rsquo;)) : ?&gt;</p>
+
+<p>Formatting of quote posts</p>
+
+<p>&lt;?php elseif (in_category(&lsquo;link&rsquo;)) : ?&gt;</p>
+
+<p>Formatting of link posts</p>
+
+<p>&lt;?php elseif (in_category(&lsquo;video&rsquo;)) : ?&gt;</p>
+
+<p>Formatting of video posts</p>
+
+<p>&lt;?php else : ?&gt;</p>
+
+<p>Default formatting for posts with no category</p>
+
+<p>You can, of course, include as many different post categories as you like. But this basic setup will allow you to use any HTML and CSS trickery you like to format each post type distinctly from the others.</p>
+
+<h3>Formatting Link Posts</h3>
+
+<p>To take advantage of the DF-Style Linked List plugin we&rsquo;re going to have to put some very basic formatting into our theme. In order to render the link to an external site, we&rsquo;ll use the following code.</p>
+
+<p><code>&lt;a href="&lt;?php the_linked_list_link(); ?&gt;" title="Link to &lt;?php the_title_attribute(); ?&gt;"&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;</code></p>
+
+<p>This will create a link whose text is the entry title, but whose URL will take you to the referenced post, not the entry&rsquo;s permalink. This is the same, in effect, as Tumblr&rsquo;s link posts.</p>
+
+<h3>Accessing Custom Fields</h3>
+
+<p>In order to access the photographs, videos, and quotes we&rsquo;ve inputted in our custom fields, we&rsquo;re going to need some custom code. In the code below, the word <em>&ldquo;key&rdquo;</em> should be replaced with whatever the key&mdash;or name&mdash;of the custom field your referencing is.</p>
+
+<p><code>&lt;?php $key = get_post_meta($post-&gt;ID, 'key', true); if ($key == '') { ?&gt;&lt;?php } else { ?&gt;&lt;p&gt;&lt;?php echo $key; ?&gt;&lt;/p&gt;&lt;?php } ?&gt;</code></p>
+
+<p>This code will render the contents of the custom field inside &lt;p&gt; tags, and can be used anywhere inside The Loop. The &lt;p&gt; tags can, of course, be replaced with any other HTML. If the custom field has no content, nothing is displayed.</p>
+
+<p>In practice, I use this code within The Loop within each category section, as appropriate. For example, in the Quotes section I use this code to input the quote text, replacing <em>&ldquo;key&rdquo;</em> with <em>&ldquo;quote.&rdquo;</em> Similarly in the photos section, etc.</p>
+
+<p>The advantage to using this approach is that, if you decide to drastically change the formatting of content in future redesigns, your individual entries are not hard-coded with design-specific tags. It dramatically reduces forwards compatibility issues.</p>
+
+<h2>Step Six: Mapping URL Changes</h2>
+
+<p>There&rsquo;s no good way to automatically forward Tumblr URLs to their newer, cleaner WordPress counterparts. You have to do it with <a title="Learn About .htaccess" href="http://www.javascriptkit.com/howto/htaccess.shtml">.htaccess</a>.</p>
+
+<p>What do I mean? Tumblr renders its permalink URLs in a long, ugly format that allows for great scalability but little customizability. They look like this:</p>
+
+<p><code>http://blog.ianhines.com/post/1611339199/20-things</code></p>
+
+<p>WordPress, on the other hand, affords you great control in how your permalink URLs are displayed. For example, mine are formatted to show the year, month, and entry &ldquo;slug,&rdquo; like this:</p>
+
+<p><code>http://log.ianhines.com/2010/11/twenty-things/</code></p>
+
+<p>When you move from Tumblr to WordPress your old, Tumblr permalinks will thereafter be broken. At best they&rsquo;ll take visitors to your old Tumblr blog. At worst they&rsquo;ll be entirely broken (if you delete the Tumblr account, for example). That is, unless you map them with .htaccess.</p>
+
+<p>But how do you keep track of dozens, or hundreds of individual URLs and map them properly? You use a spreadsheet.</p>
+
+<ul>
+<li>In Column A list the old Tumblr URLs.</li>
+<li>In Column B list the corresponding WordPress URLs.</li>
+<li>In Column C note whether this page has yet been entered into your .htaccess file.</li>
+</ul>
+
+<p>Within the .htaccess file the code should look like this, with one line per entry <em>(This example shows the .htaccess mapping for the URLs used in the example above. It was entered in the .htaccess file at the root of http://blog.ianhines.com.)</em>. Every space is important and must be done precisely.</p>
+
+<p><code>Redirect 301 /post/1611339199/20-things http://log.ianhines.com/2010/11/twenty-things/</code></p>
+
+<p>If it sounds rudimentary, it&rsquo;s because it is. It&rsquo;s not an elegant solution: it&rsquo;s a functional one. Importing entries this way is slow and tedious, but the end result is worthwhile. Or, at least, it was for me.</p>
+
+<p><strong>Update (12/08/2010):</strong> Consider using the Simple 301 WordPress plugin rather than editing .htaccess directly.</p>
+
+<h2>Step Seven: Miscellaneous Thoughts</h2>
+
+<ul>
+<li>If you&rsquo;re currently using a custom domain with Tumblr via A-Records, you&rsquo;ll need to disable that A-Record redirect before trying to access any WordPress pages on that URL. You&rsquo;ll be able to upload them via FTP with A-Records enabled, but until you remove that record from your DNS every address on that URL will be redirected back to Tumblr. This does not affect subdomains.</li>
+<li>If you use a custom domain name on Tumblr, be sure to change the custom URL that your Tumblr account masks itself as in the Tumblr <a title="Visit your Customize page" href="http://www.tumblr.com/customize">Customize</a> page once you&rsquo;ve finished your migration to WordPress. DO NOT change the A-Records for your WordPress URL, as Tumblr instructs. If you change Tumblr&rsquo;s settings, but leave the A-Record unchange, Tumblr will simply redirect your username.tumblr.com address to your new blog. For example, click: <a href="http://ianhines.tumblr.com/">ianhines.tumblr.com</a>.</li>
+<li>I have uploaded a .txt version of my current theme&rsquo;s index.php file <a href="http://ianhines.com/tumblr-wordpress/index.txt">here</a>. Feel free to use it as a guide. Don&rsquo;t steal from it.</li>
+</ul>
+
+<h2>That&rsquo;s It!</h2>
+
+<p>Don&rsquo;t let the length of this post fool you: moving your Tumblr blog to WordPress isn&rsquo;t particularly difficult&mdash;just time consuming. But remember, that&rsquo;s no discredit to WordPress, as we&rsquo;re really flexing WordPress&rsquo;s muscle here to create a tumblelog where one wasn&rsquo;t intended.</p>
+
+<p>This isn&rsquo;t a process for everyone&mdash;I know that. But if you&rsquo;re like me, and are willing to add a bit of friction to your work-flow in exchange for reliability and control, then I strongly suggest you spend the time to move to WordPress. In the end you&rsquo;ll have a weblog with the same multi-format functionality as Tumblr, and the added benefits of self-hosting and all that WordPress has to offer.</p>
+
+
+  <aside>
+    <time datetime="2010-12-09 H%:43">Published on December 09, 2010</time>
+  </aside>
+</article>
+
+
+    
+    <footer>
+      <nav id="nav">
+        <ul id="menu" class="menu">
+  <li>
+    <a href="/wrote">Writings</a>
+  </li>
+  <li>
+    <a href="http://the.beag.co" target="_blank">Work</a>
+  </li>
+  <li>
+    <a href="/about">About</a>
+  </li>
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+      </nav>
+    </footer>
+    
+
+  </main>
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '528a3e59f5a1f52c0f000066');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</body>
+</html>
