@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ site.title }} | 404 Error</title>
+  <link rel="stylesheet" href="/css/app.css" />
+
+  <style>
+    {% assign header-background-rgb = current.meta.header-background-rgb | fallback: '216, 38, 44' %}
+    {% assign header-image-url = current.meta.header-image-url | fallback: '' %}
+    {% assign primary-color = current.meta.primary-color | fallback: '#D8262C' %}
+    {% assign secondary-color = current.meta.secondary-color | fallback: '#2e2a2a' %}
+    {% assign knockout-color = current.meta.secondary-color | fallback: '#D8262C' %}
+
+    ::selection {
+      background: {{ secondary-color }}; /* WebKit/Blink Browsers */
+      color: #fff;
+    }
+    ::-moz-selection {
+      background: {{ secondary-color }}; /* Gecko Browsers */
+      color: $white;
+    }
+
+    {% comment %}{% if current.home? or primary-color == "#fff" %}
+    header h1#logo {
+      background-image: url("/assets/logo.png");
+    }
+    {% else %}
+    header h1#logo {
+      background-image: url("/assets/logo_transparent_white.png");
+    }
+    {% endif %}{% endcomment %}
+
+    .hero-image {
+      background-image: url("{{ header-image-url }}");
+      background-position: center top;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    .hero-image .hero-image--overlay {
+      background-color: rgba({{ header-background-rgb }}, 0.8);
+    }
+
+    .hero-image a.label {
+      background-color: {{ primary-color }};
+    }
+
+    .hero-image a.label:hover {
+      background-color: {{ secondary-color }};
+      color: #fff;
+    }
+
+    .hero-image h1, .hero-image p {
+      color: #fff;
+    }
+
+    .cd-nav-trigger, .cd-nav, main footer#site-footer {
+      background-color: {{ secondary-color }};
+    }
+
+    section.content-body a {
+      border-bottom: 4px solid {{ primary-color }};
+    }
+    section.content-body a:hover {
+      color: {{ primary-color }};
+    }
+
+    blockquote {
+      border-left: 4px solid {{ secondary-color }};
+    }
+  </style>
+
+</head>
+<body>
+  <main id="{{ current.slug }}">
+    <section class="hero-image" id="intro" style="background-image:url('/assets/mitt_romney_giant_jenga_fail.gif');">
+      <div class="hero-image--overlay">
+        <div class="row">
+          <div class="medium-10 large-8 small-centered columns">
+            <h1>404 Error</h1>
+            <p class="lead">Page Not Found</p>
+            {% if current.meta.project-url > 0 %}
+              <a href="{{ current.meta.project-url }}" target="_blank" class="small hollow button">
+                Visit live site
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="content-body">
+      <div class="row">
+        <div class="medium-8 small-centered medium-text-center columns">
+          <p>
+            Unfortunately, that page doesn’t exist. But we’re glad you stopped by!
+          </p>
+          <p>
+            Might we recommend the <a href="/">homepage</a>? Or perhaps our <a href="/work">case studies</a>?
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer id="site-footer">
+      <div class="row">
+        <div class="medium-6 columns">
+          <a href="/">
+            <h1 id="logo">The Beag Co.</h1>
+          </a>
+        </div>
+        <div class="medium-6 medium-text-right columns">
+          <a href="http://nationbuilder.com/beag" target="_blank">Certified <strong>NationBuilder Experts &amp; Architects</strong> since 2013.</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+  {% include "includes/main-navigation" %}
+  {% include "includes/footer-javascript" %}
+</body>
+</html>

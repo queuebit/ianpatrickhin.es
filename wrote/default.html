@@ -1,0 +1,11 @@
+{% capture content %}
+<article class="block">
+  {{ body }}
+
+  <aside>
+    <time datetime="{{ current.date | date: '%Y-%m-%d H%:%M' }}">Published on {{ current.date | date: '%B %d, %Y' }}</time>
+  </aside>
+</article>
+{% endcapture %}
+
+{% include "layouts/default" %}

@@ -1,0 +1,83 @@
+// Fixed Window Border
+body {
+  background-color: $gray;
+}
+
+#top-border, #bottom-border, #left-border, #right-border {
+  background-color: $gray;
+  position: fixed;
+}
+
+#left-border, #right-border {
+  top: 0;
+  bottom: 0;
+  width: 0.75rem;
+  @media only screen and (min-width : $screen-sm) {
+    width: 1rem;
+  }
+}
+
+#left-border {
+  left: 0;
+}
+
+#right-border {
+  right: 0;
+}
+
+#top-border, #bottom-border {
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+  @media only screen and (min-width : $screen-sm) {
+    height: 1rem;
+  }
+}
+
+#top-border {
+  top: 0;
+}
+
+#bottom-border {
+  bottom: 0;
+}
+
+main {
+  background-color: $white;
+  min-height: 94.5vh;
+  padding: 1rem;
+}
+
+// Basic Structure
+
+header, nav, section, article, aside, footer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36rem;
+}
+
+header {
+  margin-top: 1rem;
+  @media only screen and (min-width : 1025px) {
+    margin-top: 4rem;
+  }
+}
+
+section {
+  margin-top: 4rem;
+  article {
+    margin-bottom: 3rem;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+footer {
+  margin-bottom: 1rem;
+  @media only screen and (min-width : 1025px) {
+    margin-bottom: 4rem;
+  }
+  margin-top: 4rem;
+}

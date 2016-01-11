@@ -1,0 +1,50 @@
+{% assign section = url | remove_first:'/' | split:'/' | first %}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% if meta.redirect %}
+    <meta http-equiv="refresh" content="0;url={{meta.redirect}}">
+  {% endif %}
+  <title>{% if current.slug == "home" %}{{ site.title }}{% elsif parent.slug == "wrote" %}“{{ title}}” by Ian Patrick Hines{% else %}{{ site.title }} / {% if parent %}{{ parent.title }} / {% endif %}{{ title }}{% endif %}</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6857554/6536752/css/fonts.css" />
+  {% include "includes/favicons" %}
+</head>
+<body>
+  <div id="left-border"></div>
+  <div id="right-border"></div>
+  <div id="top-border"></div>
+  <div id="bottom-border"></div>
+  <main id="{{ current.slug }}">
+    <header>
+      <nav id="breadcrumbs">
+        <a href="/">
+          <img src="http://graph.facebook.com/53000463/picture?width=150&height=150" alt="Photo: Ian Patrick Hines" class="profile-photo">
+        </a>
+        {% if current.slug == "home" %}
+          {% include "includes/nav" %}
+        {% else %}
+          <a href="/">ianpatrickhin.es</a> / {% if parent %}<a href="{{ parent.url }}">{{ parent.slug }}</a> / {% endif %}
+        {% endif %}
+      </nav>
+      <h1>
+        {{ current.title }}
+      </h1>
+    </header>
+
+    {{ content }}
+
+    {% unless current.slug == "home" %}
+    <footer>
+      <nav id="nav">
+        {% include "includes/nav" %}
+      </nav>
+    </footer>
+    {% endunless %}
+
+  </main>
+  {% include "includes/footer-javascript" %}
+</body>
+</html>
